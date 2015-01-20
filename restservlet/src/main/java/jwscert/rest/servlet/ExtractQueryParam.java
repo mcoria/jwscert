@@ -1,13 +1,11 @@
-package jwscert.restservlet;
+package jwscert.rest.servlet;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 
-@Path("/hello")
-@Produces("text/plain")
-public class HelloWorldResource {
+@Path("/queryparam")
+public class ExtractQueryParam {
 
 	/*
 	@GET
@@ -16,9 +14,7 @@ public class HelloWorldResource {
 	}*/
 	
 	@GET
-	//@Path("?text={text}")
 	public String helloWithParams(@QueryParam("text") String text){
 		return text;
 	}
-	
 }
