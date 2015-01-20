@@ -6,7 +6,7 @@ import java.util.Set;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
-@ApplicationPath("/resources")
+@ApplicationPath("/rest")
 public class MyApplication extends Application {
 
 	
@@ -14,5 +14,5 @@ public class MyApplication extends Application {
 		Set<Class<?>> s = new HashSet<Class<?>>();
 		s.add(HelloWorldResource.class);
 		return s;
-	}	
+	}
 }
