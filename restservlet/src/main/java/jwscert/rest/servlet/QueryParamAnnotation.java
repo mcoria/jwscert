@@ -5,7 +5,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.QueryParam;
 
 @Path("/queryparam")
-public class ExtractQueryParam {
+public class QueryParamAnnotation {
 
 	/*
 	@GET

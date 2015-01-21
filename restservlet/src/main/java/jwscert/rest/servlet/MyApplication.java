@@ -12,8 +12,9 @@ public class MyApplication extends Application {
 	@Override
 	public Set<Class<?>> getClasses() {
 		Set<Class<?>> s = new HashSet<Class<?>>();
-		s.add(HelloWorldResource.class);
-		s.add(ExtractQueryParam.class);
+		s.add(HelloWorld.class);
+		s.add(QueryParamAnnotation.class);
+		s.add(PathAnnotation.class);
 		return s;
 	}
 }
