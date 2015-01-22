@@ -7,14 +7,11 @@ import javax.ws.rs.QueryParam;
 @Path("/queryparam")
 public class QueryParamAnnotation {
 
-	/*
-	@GET
-	public String hello(){
-		return "Hello";
-	}*/
+	@QueryParam("param1")
+	private String param1;
 	
 	@GET
-	public String helloWithParams(@QueryParam("text") String text){
-		return text;
+	public String helloWithParams(@QueryParam("param2") String param2){
+		return param1 + " " + param2;
 	}
 }
