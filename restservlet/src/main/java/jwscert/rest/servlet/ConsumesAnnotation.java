@@ -19,13 +19,19 @@ public class ConsumesAnnotation {
 	
 	@POST
 	@Consumes(MediaType.TEXT_PLAIN)
-	public String postTextPlain(){
-		return MediaType.TEXT_PLAIN;
+	public String postTextPlain(String body){
+		return body;
 	}
 	
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
-	public String postApplicationJson(){
-		return MediaType.APPLICATION_JSON;
+	public String postApplicationJson(String body){
+		return body;
+	}
+	
+	@POST
+	@Consumes(MediaType.APPLICATION_XML)
+	public String postApplicationXml(String body){
+		return body;
 	}	
 }
