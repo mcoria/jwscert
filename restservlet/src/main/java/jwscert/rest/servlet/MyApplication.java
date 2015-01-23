@@ -15,6 +15,7 @@ public class MyApplication extends Application {
 		s.add(HelloWorld.class);
 		s.add(QueryParamAnnotation.class);
 		s.add(PathAnnotation.class);
+		s.add(ConsumesAnnotation.class);
 		return s;
 	}
 }
