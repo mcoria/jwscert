@@ -1,4 +1,4 @@
-package jwscert.rest.servlet;
+package jwscert.rest.services;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;

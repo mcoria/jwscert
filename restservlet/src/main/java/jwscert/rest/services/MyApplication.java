@@ -1,4 +1,4 @@
-package jwscert.rest.servlet;
+package jwscert.rest.services;
 
 import java.util.HashSet;
 import java.util.Set;

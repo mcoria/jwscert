@@ -1,4 +1,4 @@
-package jwscert.rest.servlet;
+package jwscert.rest.services;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.annotation.WebServlet;
