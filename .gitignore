@@ -1,6 +1,3 @@
-restservlet/.classpath
-restservlet/target/webtest/WEB-INF/classes/
-restservlet/target/webtest/WEB-INF/lib/
-restservlet/.project
-restservlet/.settings/
-restservlet/target/
+**/.settings/
+**/target/
+java/
