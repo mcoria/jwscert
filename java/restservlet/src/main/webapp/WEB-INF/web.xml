@@ -12,10 +12,11 @@
       <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
       <init-param>
           <param-name>javax.ws.rs.Application</param-name>
-          <param-value>jwscert.restservlet.MyApplication</param-value>
+          <param-value>jwscert.rest.MyApplication</param-value>
       </init-param>
 		<load-on-startup>1</load-on-startup>      
   </servlet>
-   -->
+  -->
+  
 </web-app>
 

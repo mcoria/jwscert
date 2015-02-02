@@ -17,8 +17,8 @@ public class Context {
 	public String listQueryParamNames(@javax.ws.rs.core.Context UriInfo info) {
 		StringBuilder buf = new StringBuilder();
 		for (String param: info.getQueryParameters().keySet()) {
-		buf.append(param);
-		buf.append("\n");
+			buf.append(param);
+			buf.append("\n");
 		}
 		return buf.toString();
 	}
