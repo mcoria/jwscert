@@ -13,17 +13,20 @@ public class JaTest extends JerseyTest {
 
 	private static final String baseUrl = "http://localhost:8080/predictions2";
 
-	@Override
-	protected AppDescriptor configure() {
-		return new WebAppDescriptor.Builder().build();
+	public JaTest() {
+		
 	}
 
+	@Override
+	protected AppDescriptor configure() {
+		
+	};
+	
 	@Test
 	public void asdasd() {
-		WebResource webResource = resource();
-		String responseMsg = webResource.path("/rest/hello").get(String.class);
-		assertEquals("Hello World", responseMsg);
-		// Assert.assertEquals(1, 2);
+        WebResource webResource = resource();
+        String responseMsg = webResource.path("helloworld").get(String.class);
+        assertEquals("Hello World", responseMsg);
 	}
 
 }
