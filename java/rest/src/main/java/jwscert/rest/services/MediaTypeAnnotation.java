@@ -4,11 +4,13 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 
 @Path("/consumes")
-public class ConsumesAnnotation {
+@Produces(MediaType.TEXT_PLAIN)
+public class MediaTypeAnnotation {
 
 	@POST
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -20,18 +22,20 @@ public class ConsumesAnnotation {
 	@POST
 	@Consumes(MediaType.TEXT_PLAIN)
 	public String postTextPlain(String body){
-		return body;
+		return "postTextPlain: " + body;
 	}
 	
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
 	public String postApplicationJson(String body){
-		return body;
+		return "postApplicationJson: " + body;
 	}
 	
 	@POST
 	@Consumes(MediaType.APPLICATION_XML)
+	@Produces(MediaType.APPLICATION_XML)
 	public String postApplicationXml(String body){
-		return body;
-	}	
+		return "postApplicationXml: " + body;
+	}
 }
