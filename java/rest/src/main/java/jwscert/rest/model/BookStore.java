@@ -42,5 +42,9 @@ public class BookStore {
 
 	public List<Book> getAll() {
 		return books;
+	}
+
+	public void create(Book book) {
+		books.add(book);
 	}	
 }
