@@ -16,6 +16,8 @@ public class MyApplication extends Application {
 		s.add(QueryParamAnnotation.class);
 		s.add(PathAnnotation.class);
 		s.add(MediaTypeAnnotation.class);
+		s.add(JsonResources.class);
 		return s;
 	}
+
 }

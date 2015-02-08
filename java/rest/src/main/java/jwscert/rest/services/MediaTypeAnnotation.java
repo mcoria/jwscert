@@ -8,22 +8,23 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 
-@Path("/consumes")
+@Path("/media")
 @Produces(MediaType.TEXT_PLAIN)
 public class MediaTypeAnnotation {
 
-	@POST
-	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	public String postFormURLEncoded(@FormParam("variable1") String variable1, 
-									 @FormParam("variable2") String variable2 ){
-		return "variable1: " + variable1 + ", variable2: " + variable2 ;
-	}
-	
 	@POST
 	@Consumes(MediaType.TEXT_PLAIN)
 	public String postTextPlain(String body){
 		return "postTextPlain: " + body;
 	}
+	
+	@POST
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	public String postFormURLEncoded(@FormParam("variable1") String variable1, 
+									 @FormParam("variable2") String variable2 ){
+		return "postFormURLEncoded: variable1=" + variable1 + ", variable2=" + variable2 ;
+	}
+
 	
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
