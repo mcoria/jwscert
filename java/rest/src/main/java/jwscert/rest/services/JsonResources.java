@@ -15,7 +15,7 @@ import jwscert.rest.model.BookStore;
 @Path("/bookstore")
 public class JsonResources {
 
-	BookStore bookStore = BookStore.getInstance();
+	private BookStore bookStore = BookStore.getInstance();
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)

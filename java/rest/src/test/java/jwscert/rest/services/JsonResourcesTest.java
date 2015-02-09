@@ -20,7 +20,7 @@ public class JsonResourcesTest extends BaseTest {
 
 	private static final String RESOURCE = "/bookstore";
 	
-	BookStore bookStore = BookStore.getInstance();
+	private BookStore bookStore = BookStore.getInstance();
 	
 	@Override
 	public void setUp() throws Exception {

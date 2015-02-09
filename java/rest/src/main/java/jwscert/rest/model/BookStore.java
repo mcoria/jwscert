@@ -46,5 +46,15 @@ public class BookStore {
 
 	public void create(Book book) {
 		books.add(book);
+	}
+
+	public List<Book> searchByName(String name) {
+		List<Book> booksResult = new ArrayList<Book>();
+		for (Book book : books) {
+			if(book.getName().contains(name)){
+				booksResult.add(book);
+			}
+		}		
+		return booksResult;
 	}	
 }

@@ -17,6 +17,7 @@ public class MyApplication extends Application {
 		s.add(PathAnnotation.class);
 		s.add(MediaTypeAnnotation.class);
 		s.add(JsonResources.class);
+		s.add(SearchBooksImp.class);
 		return s;
 	}
 
