@@ -1,4 +1,4 @@
-package jwscert.rest.services;
+package jwscert.rest.services.book;
 
 import static org.junit.Assert.assertEquals;
 
@@ -9,6 +9,7 @@ import javax.ws.rs.core.Response.Status;
 
 import jwscert.rest.model.Book;
 import jwscert.rest.model.BookStore;
+import jwscert.rest.services.BaseTest;
 
 import org.junit.Test;
 
@@ -52,6 +53,13 @@ public class JsonResourcesTest extends BaseTest {
         ClientResponse responseMsg = webResource.path(RESOURCE+"/1000").get(ClientResponse.class);
         assertEquals(Status.NOT_FOUND.getStatusCode(), responseMsg.getStatusInfo().getStatusCode());
 	}
+	
+	@Test
+	public void findByIdWrongID() {
+        WebResource webResource = resource();
+        ClientResponse responseMsg = webResource.path(RESOURCE+"/1000a").get(ClientResponse.class);
+        assertEquals(Status.NOT_FOUND.getStatusCode(), responseMsg.getStatusInfo().getStatusCode());
+	}	
 	
 	@Test
 	public void create() {

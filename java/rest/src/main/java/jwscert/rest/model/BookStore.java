@@ -20,7 +20,7 @@ public class BookStore {
 		
 		Book book1  = new Book();
 		book1.setId(1);
-		book1.setName("Name");
+		book1.setName("Name1");
 		
 		Book book2  = new Book();
 		book2.setId(2);

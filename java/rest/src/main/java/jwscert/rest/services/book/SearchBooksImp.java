@@ -1,4 +1,4 @@
-package jwscert.rest.services;
+package jwscert.rest.services.book;
 
 import java.util.List;
 
@@ -12,7 +12,5 @@ public class SearchBooksImp implements SearchBooks {
 	public List<Book> searchByName(String name) {
 		return bookStore.searchByName(name);
 	}
-	
-
 
 }

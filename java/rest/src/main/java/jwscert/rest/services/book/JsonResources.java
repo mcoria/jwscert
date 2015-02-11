@@ -1,4 +1,4 @@
-package jwscert.rest.services;
+package jwscert.rest.services.book;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -24,7 +24,7 @@ public class JsonResources {
 	}
 
 	@GET
-	@Path("/{id}")
+	@Path("/{id: [0-9]*}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getById(@PathParam("id") int id) {
 		Book book = bookStore.getById(id);
