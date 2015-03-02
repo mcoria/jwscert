@@ -16,19 +16,19 @@
 	<dependency>
 		<groupId>com.sun.jersey</groupId>
 		<artifactId>jersey-core</artifactId>
-		<version>1.18.3</version>
+		<version>${jersey.version}</version>
 		<scope>provided</scope>
 	</dependency>
 	<dependency>
 		<groupId>com.sun.jersey.jersey-test-framework</groupId>
 		<artifactId>jersey-test-framework-http</artifactId>
-		<version>1.18.3</version>
+		<version>${jersey.version}</version>
 		<scope>test</scope>
 	</dependency>
 	 <dependency>
 	    <groupId>com.sun.jersey</groupId>
 	    <artifactId>jersey-json</artifactId>
-	    <version>1.18.3</version>
+	    <version>${jersey.version}</version>
 	    <scope>provided,test</scope>
 	 </dependency>	
   </dependencies>
@@ -42,11 +42,11 @@
 	          <systemProperties>
 	            <property>
 	              <name>jersey.test.port</name>
-	              <value>8080</value>
+	              <value>9080</value>
 	            </property>
 	            <property>
 	              <name>jersey.test.clientPort</name>
-	              <value>14147</value>
+	              <value>9080</value>
 	            </property>	            
 	          </systemProperties>
 		   </configuration>

@@ -51,14 +51,14 @@ public class JsonResourcesTest extends BaseTest {
 	public void findByIdNotFound() {
         WebResource webResource = resource();
         ClientResponse responseMsg = webResource.path(RESOURCE+"/1000").get(ClientResponse.class);
-        assertEquals(Status.NOT_FOUND.getStatusCode(), responseMsg.getStatusInfo().getStatusCode());
+        assertEquals(Status.NOT_FOUND.getStatusCode(), responseMsg.getStatus());
 	}
 	
 	@Test
 	public void findByIdWrongID() {
         WebResource webResource = resource();
         ClientResponse responseMsg = webResource.path(RESOURCE+"/1000a").get(ClientResponse.class);
-        assertEquals(Status.NOT_FOUND.getStatusCode(), responseMsg.getStatusInfo().getStatusCode());
+        assertEquals(Status.NOT_FOUND.getStatusCode(), responseMsg.getStatus());
 	}	
 	
 	@Test
@@ -70,7 +70,7 @@ public class JsonResourcesTest extends BaseTest {
         book.setName("Name3");
         
         ClientResponse responseMsg = webResource.path(RESOURCE).type(MediaType.APPLICATION_JSON_TYPE).post(ClientResponse.class, book);
-        assertEquals(Status.OK.getStatusCode(), responseMsg.getStatusInfo().getStatusCode());
+        assertEquals(Status.OK.getStatusCode(), responseMsg.getStatus());
         
         Book bookFound = bookStore.getById(3);
         
