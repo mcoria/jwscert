@@ -15,7 +15,7 @@
 	</modules>
 	
     <properties>
-      <jersey.version>1.9</jersey.version>
+      <jersey.version>1.19</jersey.version>
     </properties>
   	
 	<dependencies>
