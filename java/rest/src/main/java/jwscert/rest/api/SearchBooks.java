@@ -1,4 +1,4 @@
-package jwscert.rest.services.book;
+package jwscert.rest.api;
 
 import java.util.List;
 

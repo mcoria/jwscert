@@ -10,8 +10,10 @@ public class BookStore {
 	
 	private BookStore() {}
 	
-	private static BookStore instance = new BookStore();
+	private static volatile BookStore instance;
 	public static synchronized  BookStore getInstance() {
+		instance = new BookStore();
+		instance.reset();
 		return instance;
 	}
 	

@@ -1,30 +1,12 @@
 package jwscert.rest.services.book;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-
-import java.io.UnsupportedEncodingException;
-import java.util.List;
-
-import javax.ws.rs.core.MediaType;
-
-import jwscert.rest.model.Book;
-import jwscert.rest.model.BookStore;
 import jwscert.rest.services.BaseTest;
-
-import org.junit.Test;
-
-import com.sun.jersey.api.client.ClientHandlerException;
-import com.sun.jersey.api.client.ClientResponse;
-import com.sun.jersey.api.client.GenericType;
-import com.sun.jersey.api.client.UniformInterfaceException;
-import com.sun.jersey.api.client.WebResource;
 
 public class JsonSearchBooksTest extends BaseTest  {
 
 	private static final String RESOURCE = "/bookstore/search";
 	
+	/*
 	private BookStore bookStore = BookStore.getInstance();	
 	
 	@Override
@@ -46,5 +28,6 @@ public class JsonSearchBooksTest extends BaseTest  {
         Book book = books.get(0);
         assertNotNull(book);
         assertTrue(book.getName().contains("Name1") );
-	}		
+	}	
+	*/	
 }

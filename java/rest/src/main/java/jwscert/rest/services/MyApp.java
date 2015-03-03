@@ -9,8 +9,7 @@ import javax.ws.rs.core.Application;
 import jwscert.rest.services.book.JsonResources;
 import jwscert.rest.services.book.SearchBooksImp;
 
-@ApplicationPath("/rest")
-public class MyApplication extends Application {
+public class MyApp extends Application {
 
 	@Override
 	public Set<Class<?>> getClasses() {

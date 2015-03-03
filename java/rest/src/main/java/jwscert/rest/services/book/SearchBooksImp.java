@@ -2,6 +2,7 @@ package jwscert.rest.services.book;
 
 import java.util.List;
 
+import jwscert.rest.api.SearchBooks;
 import jwscert.rest.model.Book;
 import jwscert.rest.model.BookStore;
 
