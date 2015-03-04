@@ -8,7 +8,10 @@ import com.sun.jersey.api.json.JSONConfiguration;
 
 
 public abstract class BaseTest {
+	private static final String RESOURCES_ROOT = "/resources";
 
+	private static final String SERVLET_CONTEXT = "/rest-servlet";
+	
 	private Client client = Client.create(configure());
 	
 	public WebResource resource() {
@@ -25,7 +28,7 @@ public abstract class BaseTest {
 	protected String getClientURI() {
 		String host = System.getProperty("jersey.test.host", "localhost");
 		String port = System.getProperty("jersey.test.port", Integer.toString(8088));
-		return "http://" + host + ":" + port + "/rest/resources";
+		return "http://" + host + ":" + port + SERVLET_CONTEXT + RESOURCES_ROOT;
 	}
 	
 	
