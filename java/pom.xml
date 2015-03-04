@@ -14,6 +14,7 @@
 		<module>rest-servlet</module>
 		<module>rest-servlet-client</module>
     	<module>rest-jee</module>
+    	<module>TestEJB</module>
 	</modules>
 	
     <properties>
