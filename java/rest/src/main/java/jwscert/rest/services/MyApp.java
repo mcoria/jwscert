@@ -3,7 +3,6 @@ package jwscert.rest.services;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
 import jwscert.rest.services.book.JsonResources;
