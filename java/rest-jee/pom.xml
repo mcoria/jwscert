@@ -13,7 +13,7 @@
   
 	<modules>
 		<module>ejbs</module>
-		<module>ewar</module>
+		<module>war</module>
 		<module>ear</module>
 	</modules>
 	  
