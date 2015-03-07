@@ -8,7 +8,7 @@
       <version>1.0-SNAPSHOT</version>
   </parent>
   
-  <artifactId>rest-servlet-client</artifactId>
+  <artifactId>rest-client</artifactId>
   <packaging>jar</packaging>
 
   <name>REST Client</name>
