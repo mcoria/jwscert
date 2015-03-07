@@ -5,6 +5,9 @@
     <artifactId>jee6ws-developer-expert</artifactId>
     <version>1.0-SNAPSHOT</version>
   </parent>
+  
   <artifactId>rest-api</artifactId>
   <name>Rest API</name>
+  <packaging>jar</packaging>
+  
 </project>

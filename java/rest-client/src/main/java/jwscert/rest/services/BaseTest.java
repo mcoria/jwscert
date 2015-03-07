@@ -8,7 +8,7 @@ import com.sun.jersey.api.json.JSONConfiguration;
 
 
 public abstract class BaseTest {
-	private static final String RESOURCES_ROOT = "/resources";
+	private static final String RESOURCES_ROOT = "/jaxrs";
 
 	private static final String SERVLET_CONTEXT = "/rest-servlet";
 	

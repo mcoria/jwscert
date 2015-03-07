@@ -7,13 +7,13 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 @Stateless
-@Path("/hello")
+@Path("/helloejb")
 public class HelloRestBean {
 
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
 	public String helloWithParams(){
-		return "Hello World";
+		return "Hello World from EJB";
 	}
 	
 }

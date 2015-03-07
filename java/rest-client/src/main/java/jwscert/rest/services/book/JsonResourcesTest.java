@@ -35,7 +35,8 @@ public class JsonResourcesTest extends BaseTest {
 	@Test
 	public void finById() {
         WebResource webResource = resource();
-        ClientResponse responseMsg = webResource.path(RESOURCE+"/1").get(ClientResponse.class);        
+        ClientResponse responseMsg = webResource.path(RESOURCE+"/1").get(ClientResponse.class);
+        assertEquals(Status.OK.getStatusCode(), responseMsg.getStatus());
         Book book = responseMsg.getEntity(Book.class);
         assertEquals(MediaType.APPLICATION_JSON_TYPE, responseMsg.getType());
         assertEquals(1, book.getId());

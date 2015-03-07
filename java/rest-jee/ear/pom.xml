@@ -17,7 +17,7 @@
    <dependencies>
       <dependency>
          <groupId>kano</groupId>
-         <artifactId>ewar</artifactId>
+         <artifactId>jee-war</artifactId>
          <version>1.0-SNAPSHOT</version>
          <type>war</type>
       </dependency>      
@@ -28,11 +28,19 @@
          <plugin>
             <artifactId>maven-ear-plugin</artifactId>
             <configuration>
+			   <displayName>My First EAR</displayName>
                <archive>
                   <manifest>
                      <addClasspath>true</addClasspath>
                   </manifest>
                </archive>
+               <modules>
+                   <webModule>
+                       <groupId>kano</groupId>
+                       <artifactId>jee-war</artifactId>
+                       <contextRoot>/rest-servlet</contextRoot>
+                   </webModule>
+               </modules>            
             </configuration>
          </plugin>
       </plugins>

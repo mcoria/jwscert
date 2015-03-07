@@ -13,24 +13,18 @@
   <name>REST Webapp</name>
       
   <dependencies>
+	<dependency>
+		<groupId>javax.ws.rs</groupId>
+		<artifactId>jsr311-api</artifactId>
+		<version>${jaxrs.version}</version>
+		<scope>compile</scope>
+	</dependency>  
     <dependency>
 		<groupId>kano</groupId>
 		<artifactId>rest-api</artifactId>
 		<version>1.0-SNAPSHOT</version>
 		<scope>compile</scope>
-    </dependency>   
-	<dependency>
-		<groupId>org.apache.tomcat</groupId>
-		<artifactId>tomcat-api</artifactId>
-		<version>7.0.57</version>
-		<scope>provided</scope>
-	</dependency>
-	<dependency>
-		<groupId>javax.ws.rs</groupId>
-		<artifactId>jsr311-api</artifactId>
-		<version>${jaxrs.version}</version>
-		<scope>runtime</scope>
-	</dependency>		
+    </dependency>   		
 	<dependency>
 		<groupId>com.sun.jersey</groupId>
 		<artifactId>jersey-core</artifactId>
@@ -48,6 +42,12 @@
 		<artifactId>jersey-json</artifactId>
 		<version>${jersey.version}</version>
 		<scope>runtime</scope>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.tomcat</groupId>
+		<artifactId>tomcat-api</artifactId>
+		<version>7.0.57</version>
+		<scope>provided</scope>
 	</dependency>	 	
   </dependencies>
   
