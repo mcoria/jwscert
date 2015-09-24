@@ -10,7 +10,7 @@
 
 	<artifactId>rest-war-servlet</artifactId>
 	<packaging>war</packaging>
-	<name>REST Webapp</name>
+	<name>REST Servlet WebApp</name>
 
 	<dependencies>
 		<dependency>
