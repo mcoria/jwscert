@@ -12,7 +12,7 @@
 
 	<modules>
 		<module>rest-api</module>
-		<module>rest-servlet</module>
+		<module>rest-war-servlet</module>
 		<module>rest-jee</module>
 		<module>rest-client</module>
 	</modules>
