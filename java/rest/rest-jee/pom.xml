@@ -13,9 +13,9 @@
 	<packaging>pom</packaging>
 
 	<modules>
-		<module>ejbs</module>
-		<module>war</module>
-		<module>ear</module>
+		<module>rest-ejbs</module>
+		<module>rest-war2-jee</module>
+		<module>rest-ear</module>
 	</modules>
 
 

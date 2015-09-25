@@ -9,7 +9,7 @@
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>ear</artifactId>
+	<artifactId>rest-ear</artifactId>
 	<packaging>ear</packaging>
 	<name>EAR assembly</name>
 
