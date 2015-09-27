@@ -11,7 +11,7 @@ import jwscert.rest.services.MediaTypeAnnotation;
 import jwscert.rest.services.PathAnnotation;
 import jwscert.rest.services.QueryParamAnnotation;
 import jwscert.rest.services.book.JsonResources;
-import jwscert.rest.services.book.SearchBooksImp;
+import jwscert.rest.services.book.SearchBooks;
 
 public class MyApp extends Application {
 
@@ -23,7 +23,7 @@ public class MyApp extends Application {
 		s.add(PathAnnotation.class);
 		s.add(MediaTypeAnnotation.class);
 		s.add(JsonResources.class);
-		s.add(SearchBooksImp.class);
+		s.add(SearchBooks.class);
 		return s;
 	}
 

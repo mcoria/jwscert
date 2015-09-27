@@ -14,10 +14,10 @@
 
 	<modules>
 		<module>rest-ejbs</module>
-		<module>rest-war2-jee</module>
+		<module>rest-war-jee</module>
+		<module>rest-war-jee2</module>
 		<module>rest-ear</module>
 	</modules>
-
 
 	<dependencies>
 		<dependency>

@@ -8,7 +8,7 @@
 	</parent>
 
 	<artifactId>rest-api</artifactId>
-	<name>Rest API</name>
+	<name>REST API</name>
 	<packaging>jar</packaging>
 
 	<dependencies>

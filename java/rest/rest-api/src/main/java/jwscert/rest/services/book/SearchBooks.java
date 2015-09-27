@@ -1,4 +1,4 @@
-package jwscert.rest.api;
+package jwscert.rest.services.book;
 
 import java.util.List;
 
@@ -9,11 +9,16 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import jwscert.rest.model.Book;
+import jwscert.rest.model.BookStore;
 
 @Path("/bookstore/search")
-public interface SearchBooks {
+public class SearchBooks  {
+	private BookStore bookStore = BookStore.getInstance();
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Book> searchByName(@QueryParam("name") String name);
+	public List<Book> searchByName(@QueryParam("name") String name) {
+		return bookStore.searchByName(name);
+	}
+
 }

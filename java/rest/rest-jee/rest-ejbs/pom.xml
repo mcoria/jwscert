@@ -8,9 +8,9 @@
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>jee-ejbs</artifactId>
+	<artifactId>rest-ejbs</artifactId>
 	<packaging>ejb</packaging>
-	<name>EJBs Module</name>
+	<name>REST EJBs Module</name>
 
 	<build>
 		<plugins>
