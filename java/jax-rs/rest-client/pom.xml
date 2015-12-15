@@ -4,7 +4,7 @@
 
 	<parent>
 		<groupId>kano</groupId>
-		<artifactId>jee6ws-developer-expert</artifactId>
+		<artifactId>jax-rs</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 
