@@ -12,20 +12,23 @@
 
 	<modules>
 		<module>jax-rs</module>
+		<module>jax-ws</module>
 	</modules>
 
 	<properties>
 		<junit.version>4.11</junit.version>
 	</properties>
 
-	<dependencies>	
-		<dependency>		
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>${junit.version}</version>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit.version}</version>
+				<scope>test</scope>
+			</dependency>
+		</dependencies>	
+	</dependencyManagement>
 
 	<!-- JEE 6 (Glassfish 3.1.2.2): SDK bundles with JDK7 U3, 
 									SDK bundles with JDK6 U31 -->
