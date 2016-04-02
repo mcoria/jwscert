@@ -1,6 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
@@ -9,40 +8,24 @@
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>rest-ear</artifactId>
-	<packaging>ear</packaging>
-	<name>EAR assembly</name>
-
-	<dependencies>
-		<dependency>
-			<groupId>kano</groupId>
-			<artifactId>rest-war-jee</artifactId>
-			<version>1.0-SNAPSHOT</version>
-			<type>war</type>
-		</dependency>
-	</dependencies>
+	<artifactId>rest-jee-ejbs</artifactId>
+	<packaging>ejb</packaging>
+	<name>REST EJBs Module</name>
 
 	<build>
 		<plugins>
 			<plugin>
-				<artifactId>maven-ear-plugin</artifactId>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ejb-plugin</artifactId>
 				<configuration>
-					<displayName>My First EAR</displayName>
+					<ejbVersion>3.0</ejbVersion>
 					<archive>
 						<manifest>
 							<addClasspath>true</addClasspath>
 						</manifest>
 					</archive>
-					<modules>
-						<webModule>
-							<groupId>kano</groupId>
-							<artifactId>rest-war-jee</artifactId>
-							<contextRoot>/rest-servlet</contextRoot>
-						</webModule>
-					</modules>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
-
 </project>

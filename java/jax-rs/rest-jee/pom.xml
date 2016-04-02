@@ -9,14 +9,14 @@
 	</parent>
 
 	<artifactId>rest-jee</artifactId>
-	<name>REST-JEE</name>
+	<name>REST JEE</name>
 	<packaging>pom</packaging>
 
 	<modules>
-		<module>rest-ejbs</module>
-		<module>rest-war-jee</module>
-		<module>rest-war-jee2</module>
-		<module>rest-ear</module>
+		<module>rest-jee-ejbs</module>
+		<module>rest-jee-war</module>
+		<module>rest-jee-war2</module>
+		<module>rest-jee-ear</module>
 	</modules>
 
 	<dependencies>

@@ -8,7 +8,7 @@
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>rest-war-servlet</artifactId>
+	<artifactId>rest-servlet</artifactId>
 	<packaging>war</packaging>
 	<name>REST Servlet WebApp</name>
 
@@ -16,7 +16,7 @@
 		<dependency>
 			<groupId>kano</groupId>
 			<artifactId>rest-api</artifactId>
-			<version>1.0-SNAPSHOT</version>
+			<version>${project.version}</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>

@@ -9,21 +9,21 @@
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>rest-war-jee2</artifactId>
+	<artifactId>rest-jee-war2</artifactId>
 	<packaging>war</packaging>
 	<name>REST JEE WebApp 2</name>
 
 	<dependencies>
 		<dependency>
 			<groupId>kano</groupId>
-			<artifactId>rest-ejbs</artifactId>
-			<version>1.0-SNAPSHOT</version>
+			<artifactId>rest-jee-ejbs</artifactId>
+			<version>${project.version}</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>kano</groupId>
 			<artifactId>rest-api</artifactId>
-			<version>1.0-SNAPSHOT</version>
+			<version>${project.version}</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>

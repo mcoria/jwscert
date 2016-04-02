@@ -9,7 +9,7 @@
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>rest-war-jee</artifactId>
+	<artifactId>rest-jee-war</artifactId>
 	<packaging>war</packaging>
 	<name>REST JEE WebApp</name>
 
