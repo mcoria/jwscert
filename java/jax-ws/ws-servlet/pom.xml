@@ -10,10 +10,70 @@
 	</parent>
 
 	<artifactId>ws-servlet</artifactId>
-	<packaging>pom</packaging>
+	<packaging>war</packaging>
 	<name>WS Servlet</name>
 
 	<properties>
+		<metro.verion>2.3.1</metro.verion>
 	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.metro</groupId>
+			<artifactId>webservices-rt</artifactId>
+			<version>${metro.verion}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.metro</groupId>
+			<artifactId>webservices-api</artifactId>
+			<version>${metro.verion}</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+	<build>	
+		<plugins>
+			<plugin>
+				<groupId>org.jvnet.jax-ws-commons</groupId>
+				<artifactId>jaxws-maven-plugin</artifactId>
+				<version>2.3</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>wsimport</goal>
+						</goals>
+						<configuration>
+							<wsdlLocation>http://localhost/wsdl/globalweather?wsdl</wsdlLocation>  
+							<!-- <wsdlLocation>WEB-INF/wsdl/*</wsdlLocation>-->
+							<wsdlDirectory>src/main/webapp/WEB-INF/wsdl</wsdlDirectory>
+							<wsdlFiles>
+								<wsdlFile>globalweather.wsdl</wsdlFile>
+							</wsdlFiles>
+							<extension>true</extension>
+							<catalog>jax-ws-catalog.xml</catalog>
+						</configuration>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>org.glassfish.metro</groupId>
+						<artifactId>webservices-tools</artifactId>
+						<version>${metro.verion}</version>
+					</dependency>
+					<!-- see https://java.net/jira/browse/WSIT-1672 -->
+					<dependency>
+						<groupId>org.glassfish.metro</groupId>
+						<artifactId>webservices-rt</artifactId>
+						<version>${metro.verion}</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+		</plugins>		
+	</build>
 
 </project>
