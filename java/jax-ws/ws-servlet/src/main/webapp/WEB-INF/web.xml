@@ -4,7 +4,8 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	version="3.0">
 
-	<display-name>JEE 6 - Web Application</display-name>
+   <display-name>JEE 6 - Web Application</display-name>
+   <!-- 
    <listener>
       <listener-class>
          com.sun.xml.ws.transport.http.servlet.WSServletContextListener
@@ -19,7 +20,7 @@
    <servlet-mapping>
       <servlet-name>jaxws</servlet-name>
       <url-pattern>/jaxws/*</url-pattern>
-   </servlet-mapping>
+   </servlet-mapping>  -->
    <session-config>
       <session-timeout>60</session-timeout>
    </session-config>
