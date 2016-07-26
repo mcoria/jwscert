@@ -4,19 +4,10 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
   xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
   
-   <display-name>JEE 6 - Web Application</display-name>
-   
-	<servlet>
-		<servlet-name>RandService</servlet-name>
-		<servlet-class>jwscert.jaxws.services.fromjava.RandService</servlet-class>
-		<load-on-startup>1</load-on-startup>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>RandService</servlet-name>
-		<url-pattern>/Rand</url-pattern>
-	</servlet-mapping>
+   <display-name>JEE 6 - Web Application Client</display-name>
    
    <session-config>
       <session-timeout>60</session-timeout>
    </session-config>
+   
 </web-app>

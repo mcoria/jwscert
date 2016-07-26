@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.webserviceX.NET" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://www.webserviceX.NET" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" 
+				  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" 
+				  xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" 
+				  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+				  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" 
+				  xmlns:s="http://www.w3.org/2001/XMLSchema" 
+				  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" 
+				  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+				  xmlns:tns="http://www.webserviceX.NET" 
+				  targetNamespace="http://www.webserviceX.NET" >
+
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://www.webserviceX.NET">
       <s:element name="GetWeather">
@@ -34,6 +44,7 @@
       <s:element name="string" nillable="true" type="s:string" />
     </s:schema>
   </wsdl:types>
+  
   <wsdl:message name="GetWeatherSoapIn">
     <wsdl:part name="parameters" element="tns:GetWeather" />
   </wsdl:message>
@@ -72,6 +83,7 @@
   <wsdl:message name="GetCitiesByCountryHttpPostOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
+  
   <wsdl:portType name="GlobalWeatherSoap">
     <wsdl:operation name="GetWeather">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get weather report for all major cities around the world.</wsdl:documentation>
@@ -108,7 +120,8 @@
   
   <wsdl:service name="GlobalWeather">
     <wsdl:port name="GlobalWeatherSoap" binding="tns:GlobalWeatherSoap">
-      <soap:address location="http://www.webservicex.net/globalweather.asmx" />
+      <soap:address location="http://www.webservicex.net/globalweather.asmx"/>
+      <!--  soap:address location="http://localhost/globalweather.asmx" /-->
     </wsdl:port>
   </wsdl:service>
    

@@ -9,9 +9,9 @@
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>ws-servlet</artifactId>
+	<artifactId>ws-client</artifactId>
 	<packaging>war</packaging>
-	<name>WS Servlet</name>
+	<name>WS Servlet Client</name>
 
 	<properties>
 		<metro.verion>2.3.1</metro.verion>
