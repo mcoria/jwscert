@@ -8,9 +8,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.ws.BindingProvider;
 import javax.xml.ws.WebServiceRef;
 
 import net.webservicex.GlobalWeather;
+import net.webservicex.GlobalWeatherSoap;
 
 @WebServlet(name="GlobalWeatherServlet", urlPatterns={"/GlobalWeatherServlet"})
 public class GlobalWeatherServletClient extends HttpServlet {
@@ -19,9 +21,22 @@ public class GlobalWeatherServletClient extends HttpServlet {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	//@WebServiceRef(wsdlLocation = "http://www.webservicex.net/globalweather.asmx?wsdl") // !!! Funciona
-	//@WebServiceRef(wsdlLocation = "WEB-INF/wsdl/globalweather.wsdl") // !!! Funciona
-	@WebServiceRef
+
+	/*
+	 * Resuelve el WSDL de acuerdo a lo que esta definido por defecto en  GlobalWeather
+	 */
+	@WebServiceRef 
+	
+	/*
+	 * Busca el WSDL en el server, no utiliza el catalogo 
+	 */
+	//@WebServiceRef(wsdlLocation = "http://www.webservicex.net/globalweather.asmx?wsdl") 
+
+	/*
+	 * Esta URI es resuelta por medio del catalogo 
+	 */
+	//@WebServiceRef(wsdlLocation = "http://localhost/globalweather.wsdl") 
+	
     private GlobalWeather service;
    
     /** 
@@ -49,7 +64,10 @@ public class GlobalWeatherServletClient extends HttpServlet {
             out.println("<p>" + sayHello("Argentina") + "</p>");
             out.println("</body>");
             out.println("</html>");
+        
             
+        } catch(Exception e){
+        	e.printStackTrace();
         } finally { 
             out.close();
         }
@@ -59,7 +77,16 @@ public class GlobalWeatherServletClient extends HttpServlet {
     //   getServletInfo method
     
     private String sayHello(String arg0) {
-        return service.getGlobalWeatherSoap().getCitiesByCountry(arg0);
+    	
+    	String endpointURL = "http://www.webservicex.net/globalweather.asmx";
+    	
+    	GlobalWeatherSoap port = service.getGlobalWeatherSoap();
+    	
+    	BindingProvider bp = (BindingProvider)port;
+    	
+    	bp.getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, endpointURL);
+    	
+        return port.getCitiesByCountry(arg0);
     }
     
     
