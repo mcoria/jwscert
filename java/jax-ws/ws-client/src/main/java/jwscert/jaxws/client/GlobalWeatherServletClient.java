@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.xml.ws.BindingProvider;
 import javax.xml.ws.WebServiceRef;
 
-import net.webservicex.GlobalWeather;
-import net.webservicex.GlobalWeatherSoap;
+import net.wheater.ws.GlobalWeatherSEI;
+import net.wheater.ws.GlobalWeatherService;
 
 @WebServlet(name="GlobalWeatherServlet", urlPatterns={"/GlobalWeatherServlet"})
 public class GlobalWeatherServletClient extends HttpServlet {
@@ -37,7 +37,7 @@ public class GlobalWeatherServletClient extends HttpServlet {
 	 */
 	//@WebServiceRef(wsdlLocation = "http://localhost/globalweather.wsdl") 
 	
-    private GlobalWeather service;
+    private GlobalWeatherService service;
    
     /** 
      * Processes requests for both HTTP <code>GET</code> 
@@ -80,7 +80,7 @@ public class GlobalWeatherServletClient extends HttpServlet {
     	
     	String endpointURL = "http://www.webservicex.net/globalweather.asmx";
     	
-    	GlobalWeatherSoap port = service.getGlobalWeatherSoap();
+    	GlobalWeatherSEI port = service.getGlobalWeatherSEI();
     	
     	BindingProvider bp = (BindingProvider)port;
     	

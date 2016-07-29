@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bindings 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://java.sun.com/xml/ns/jaxb"
+	schemaLocation="../wsdl/globalweather.xsd" 
+	version="1.0">
+	
+	<bindings node="/xsd:schema[@targetNamespace='http://www.webserviceX.NET']">
+		<schemaBindings>
+			<package name="net.wheater.types" />
+		</schemaBindings>
+	</bindings>
+	
+</bindings>
