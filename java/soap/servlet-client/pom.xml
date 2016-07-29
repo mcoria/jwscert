@@ -9,9 +9,9 @@
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>ws-servlet</artifactId>
+	<artifactId>servlet-client</artifactId>
 	<packaging>war</packaging>
-	<name>WS Servlet</name>
+	<name>WS Servlet Client</name>
 
 	<properties>
 		<metro.verion>2.3.1</metro.verion>
@@ -41,11 +41,11 @@
 						</goals>
 						<configuration>
 							<wsdlLocation>http://localhost/globalweather.wsdl</wsdlLocation>  
-							<!-- wsdlLocation>WEB-INF/wsdl/*</wsdlLocation-->
 							<wsdlDirectory>src/main/resources/META-INF/wsdl</wsdlDirectory>
 							<wsdlFiles>
 								<wsdlFile>globalweather.wsdl</wsdlFile>
 							</wsdlFiles>
+							<bindingDirectory>src/main/resources/META-INF/bindings</bindingDirectory>
 							<extension>true</extension>
 						</configuration>
 					</execution>

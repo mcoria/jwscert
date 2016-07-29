@@ -9,13 +9,13 @@
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>jax-ws</artifactId>
+	<artifactId>soap</artifactId>
 	<packaging>pom</packaging>
 	<name>Parent POM WS</name>
 
 	<modules>
-		<module>ws-servlet</module>
-		<module>ws-client</module>
+		<module>servlet-client</module>
+		<module>servlet-server-wsdl</module>
 	</modules>
 
 </project>
