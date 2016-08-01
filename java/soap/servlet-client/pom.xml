@@ -40,10 +40,10 @@
 							<goal>wsimport</goal>
 						</goals>
 						<configuration>
-							<wsdlLocation>http://localhost/globalweather.wsdl</wsdlLocation>  
+							<wsdlLocation>http://localhost/weather.wsdl</wsdlLocation>  
 							<wsdlDirectory>src/main/resources/META-INF/wsdl</wsdlDirectory>
 							<wsdlFiles>
-								<wsdlFile>globalweather.wsdl</wsdlFile>
+								<wsdlFile>weather.wsdl</wsdlFile>
 							</wsdlFiles>
 							<bindingDirectory>src/main/resources/META-INF/bindings</bindingDirectory>
 							<extension>true</extension>

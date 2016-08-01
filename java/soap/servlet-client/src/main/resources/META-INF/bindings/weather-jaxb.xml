@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bindings 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:xjc= "http://java.sun.com/xml/ns/jaxb/xjc"
+	xmlns="http://java.sun.com/xml/ns/jaxb"
+	schemaLocation="../wsdl/weather.xsd" 
+	version="1.0">
+	
+ 
+	<bindings node="/xsd:schema[@targetNamespace='http://ws.cdyne.com/WeatherWS/']">
+		<globalBindings>
+			<xjc:simple />
+		</globalBindings>
+	</bindings>
+
+    	
+	<bindings node="/xsd:schema[@targetNamespace='http://ws.cdyne.com/WeatherWS/']">
+		<schemaBindings>
+			<package name="com.cdyne.weather.types" />
+		</schemaBindings>
+	</bindings>
+	
+</bindings>
