@@ -5,17 +5,39 @@
   xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
   
    <display-name>JEE 6 - Web Application</display-name>
-   
+
 	<servlet>
-		<servlet-name>RandService</servlet-name>
-		<servlet-class>jwscert.jaxws.services.fromjava.RandService</servlet-class>
+		<servlet-name>GlobalWeatherImp0</servlet-name>
+		<servlet-class>jwscert.jaxws.services.fromwsdl.GlobalWeatherImp0</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>RandService</servlet-name>
-		<url-pattern>/Rand</url-pattern>
+		<servlet-name>GlobalWeatherImp0</servlet-name>
+		<url-pattern>/GlobalWeather0</url-pattern>
 	</servlet-mapping>
-   
+	   
+	<servlet>
+		<servlet-name>GlobalWeatherImp1</servlet-name>
+		<servlet-class>jwscert.jaxws.services.fromwsdl.GlobalWeatherImp1</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GlobalWeatherImp1</servlet-name>
+		<url-pattern>/GlobalWeather1</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 
+	<servlet>
+		<servlet-name>GlobalWeatherImp2</servlet-name>
+		<servlet-class>jwscert.jaxws.services.fromwsdl.GlobalWeatherImp2</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GlobalWeatherImp2</servlet-name>
+		<url-pattern>/GlobalWeather2</url-pattern>
+	</servlet-mapping>	
+    -->
+    
    <session-config>
       <session-timeout>60</session-timeout>
    </session-config>

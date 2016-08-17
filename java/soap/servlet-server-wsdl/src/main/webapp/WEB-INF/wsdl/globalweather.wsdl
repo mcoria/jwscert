@@ -118,6 +118,7 @@
     </wsdl:operation>
   </wsdl:binding>
   
+  <!--  Este es un comentario /-->
   <wsdl:service name="GlobalWeather">
     <wsdl:port name="GlobalWeatherSoap" binding="tns:GlobalWeatherSoap">
       <soap:address location="http://www.webservicex.net/globalweather.asmx"/>
