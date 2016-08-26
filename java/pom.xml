@@ -11,7 +11,7 @@
 	<url>http://maven.apache.org</url>
 
 	<modules>
-		<module>jax-rs</module>
+		<module>rest</module>
 		<module>soap</module>
 	</modules>
 

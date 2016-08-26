@@ -1,23 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
-
 	<parent>
 		<groupId>kano</groupId>
-		<artifactId>jax-ws</artifactId>
+		<artifactId>soap-parent</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
-
-	<artifactId>servlet-client</artifactId>
+	
+	<artifactId>soap-handlers</artifactId>
 	<packaging>war</packaging>
-	<name>WS Servlet Client</name>
-
+	<name>soap-handlers Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+	
 	<properties>
 		<metro.verion>2.3.1</metro.verion>
 		<!-- metro.verion>2.2.0-1</metro.verion -->
 	</properties>
-
+		
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/javax/javaee-api -->
 		<dependency>
@@ -26,9 +27,9 @@
 		    <version>6.0</version>
 		</dependency>
 	</dependencies>
-
 	
-	<build>	
+	<build>
+		<finalName>soap-handlers</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.jvnet.jax-ws-commons</groupId>
@@ -40,12 +41,12 @@
 							<goal>wsimport</goal>
 						</goals>
 						<configuration>
-							<wsdlLocation>http://localhost/weather.wsdl</wsdlLocation>  
-							<wsdlDirectory>src/main/resources/META-INF/wsdl</wsdlDirectory>
+							<wsdlLocation>WEB-INF/wsdl/HolaService.wsdl</wsdlLocation> 
+							<wsdlDirectory>src/main/webapp/WEB-INF/wsdl</wsdlDirectory>
 							<wsdlFiles>
-								<wsdlFile>weather.wsdl</wsdlFile>
+								<wsdlFile>HolaService.wsdl</wsdlFile>
 							</wsdlFiles>
-							<bindingDirectory>src/main/resources/META-INF/bindings</bindingDirectory>
+							<packageName>jwscert.jaxws.services.generated</packageName>
 							<extension>true</extension>
 						</configuration>
 					</execution>
@@ -66,5 +67,5 @@
 			</plugin>
 		</plugins>		
 	</build>
- 	
+		
 </project>
