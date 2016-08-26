@@ -2,6 +2,7 @@
 <handler-chains xmlns="http://java.sun.com/xml/ns/javaee">
   <handler-chain>
     <handler>
+    
       <handler-class>jwscert.jaxws.services.HolaLogicalHandler</handler-class>
     </handler>
     <handler>

@@ -11,7 +11,7 @@
 
 	<artifactId>soap-servlet-client</artifactId>
 	<packaging>war</packaging>
-	<name>WS Servlet Client</name>
+	<name>SOAP Servlet Client</name>
 
 	<properties>
 		<metro.verion>2.3.1</metro.verion>

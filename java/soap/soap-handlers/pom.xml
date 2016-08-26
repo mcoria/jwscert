@@ -11,7 +11,7 @@
 	
 	<artifactId>soap-handlers</artifactId>
 	<packaging>war</packaging>
-	<name>soap-handlers Maven Webapp</name>
+	<name>SOAP Handlers</name>
 	<url>http://maven.apache.org</url>
 	
 	<properties>

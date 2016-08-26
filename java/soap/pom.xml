@@ -10,7 +10,7 @@
 
 	<artifactId>soap-parent</artifactId>
 	<packaging>pom</packaging>
-	<name>Parent POM WS</name>
+	<name>SOAP Parent POM</name>
 
 	<modules>
 		<module>soap-servlet-client</module>

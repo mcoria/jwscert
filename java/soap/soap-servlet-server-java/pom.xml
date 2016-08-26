@@ -11,7 +11,7 @@
 
 	<artifactId>soap-servlet-server-java</artifactId>
 	<packaging>war</packaging>
-	<name>WS Servlet Java</name>
+	<name>SOAP Servlet Java</name>
 
 	<properties>
 		<metro.verion>2.3.1</metro.verion>

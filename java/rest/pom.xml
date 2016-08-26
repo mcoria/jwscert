@@ -11,7 +11,7 @@
 
 	<artifactId>rest-parent</artifactId>
 	<packaging>pom</packaging>
-	<name>Parent POM REST</name>
+	<name>REST Parent POM</name>
 	
 	<modules>
 		<module>rest-api</module>
