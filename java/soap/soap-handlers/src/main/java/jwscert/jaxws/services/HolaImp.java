@@ -10,8 +10,9 @@ import jwscert.jaxws.services.generated.Hola;
 @WebService(
 		serviceName="HolaService", 
 		portName="HolaServicePort", 
-		endpointInterface="jwscert.jaxws.services.generated.Hola"
-		//wsdlLocation="WEB-INF/wsdl/HolaService.wsdl"
+		endpointInterface="jwscert.jaxws.services.generated.Hola",
+		targetNamespace = "http://www.example.org/Hola/",
+		wsdlLocation="WEB-INF/wsdl/HolaService.wsdl"
 		)
 @HandlerChain(file="handler-chain.xml")
 public class HolaImp implements Hola {
@@ -21,7 +22,7 @@ public class HolaImp implements Hola {
 	
 	@Override
 	public String test(String in) {
-		System.out.println("HolaImp .... processing");	
+		System.out.println("HolaImp .... processing");
 		return in;
 	}
 

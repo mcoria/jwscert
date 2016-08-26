@@ -9,7 +9,7 @@ public class HolaLogicalHandler implements LogicalHandler<LogicalMessageContext>
 	@Override
 	public boolean handleMessage(LogicalMessageContext ctx) {
 		if((boolean)ctx.get(MessageContext.MESSAGE_OUTBOUND_PROPERTY)){
-			System.out.println("HolaLogical.handleMessage() - outbound");	
+			System.out.println("HolaLogical.handleMessage() - outbound");
 		}else {
 			System.out.println("HolaLogical.handleMessage() - inbound");
 		}
@@ -20,7 +20,7 @@ public class HolaLogicalHandler implements LogicalHandler<LogicalMessageContext>
 	@Override
 	public boolean handleFault(LogicalMessageContext ctx) {
 		if((boolean)ctx.get(MessageContext.MESSAGE_OUTBOUND_PROPERTY)){
-			System.out.println("HolaLogical.handleMessage() - outbound");	
+			System.out.println("HolaLogical.handleMessage() - outbound");
 		}else {
 			System.out.println("HolaLogical.handleMessage() - inbound");
 		}
