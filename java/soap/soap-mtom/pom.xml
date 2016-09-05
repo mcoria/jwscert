@@ -11,7 +11,7 @@
 	
 	<artifactId>soap-mtom</artifactId>
 	<packaging>war</packaging>
-	<name>SOAP Security</name>
+	<name>SOAP MTOM</name>
 	
 	
 	<properties>
