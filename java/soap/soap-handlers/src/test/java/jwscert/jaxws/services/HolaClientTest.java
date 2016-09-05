@@ -9,8 +9,6 @@ import javax.xml.ws.handler.Handler;
 import javax.xml.ws.handler.HandlerResolver;
 import javax.xml.ws.handler.PortInfo;
 
-import org.junit.Test;
-
 import jwscert.jaxws.services.generated.Hola;
 import jwscert.jaxws.services.generated.HolaService;
 

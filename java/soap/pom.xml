@@ -16,7 +16,9 @@
 		<module>soap-servlet-client</module>
 		<module>soap-servlet-server-wsdl</module>
 		<module>soap-servlet-server-java</module>
-    <module>soap-handlers</module>
+	    <module>soap-handlers</module>
+	    <module>soap-security</module>
+	    <module>soap-mtom</module>
   </modules>
 
 </project>

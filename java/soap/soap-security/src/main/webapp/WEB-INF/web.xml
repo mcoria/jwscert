@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" 
+  xmlns="http://java.sun.com/xml/ns/javaee" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+  
+   <display-name>JEE 6 - Web Application from Java</display-name>
+
+   <session-config>
+      <session-timeout>60</session-timeout>
+   </session-config>
+   
+   <security-role>
+   		<role-name>administrador</role-name>
+   </security-role>
+   <security-role>
+   		<role-name>usuario</role-name>
+   </security-role>
+   
+	<servlet>
+		<servlet-name>TransportSecurity</servlet-name>
+		<servlet-class>org.soap.security.TransportSecurity</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TransportSecurity</servlet-name>
+		<url-pattern>/TransportSecurity</url-pattern>
+	</servlet-mapping>
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>TransportSecurity</web-resource-name>
+			<url-pattern>/TransportSecurity</url-pattern>
+		</web-resource-collection>
+		<user-data-constraint>
+			<transport-guarantee>CONFIDENTIAL</transport-guarantee>
+		</user-data-constraint>		
+	</security-constraint>
+		
+		
+	<servlet>
+		<servlet-name>AppSecurity0</servlet-name>
+		<servlet-class>org.soap.security.AppSecurity0</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AppSecurity0</servlet-name>
+		<url-pattern>/AppSecurity</url-pattern>
+	</servlet-mapping>
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>AppSecurity0</web-resource-name>
+			<url-pattern>/AppSecurity0</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>administrador</role-name>
+		</auth-constraint>
+		<user-data-constraint>
+			<transport-guarantee>CONFIDENTIAL</transport-guarantee>
+		</user-data-constraint>		
+	</security-constraint>
+	
+	 <!--
+	<servlet>
+		<servlet-name>AppSecurity1</servlet-name>
+		<servlet-class>org.soap.security.AppSecurity1</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AppSecurity1</servlet-name>
+		<url-pattern>/AppSecurity1</url-pattern>
+	</servlet-mapping>
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>AppSecurity1</web-resource-name>
+			<url-pattern>/AppSecurity1</url-pattern>
+		</web-resource-collection>
+		 
+		<auth-constraint>
+			<role-name>administrador</role-name>
+			<role-name>usuario</role-name>
+		</auth-constraint> 	
+		<user-data-constraint>
+			<transport-guarantee>CONFIDENTIAL</transport-guarantee>
+		</user-data-constraint>		
+	</security-constraint>-->	
+			
+	<login-config>
+	    <auth-method>BASIC</auth-method>
+	    <realm-name>file</realm-name>
+	</login-config>
+   
+</web-app>
