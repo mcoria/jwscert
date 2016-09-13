@@ -16,6 +16,14 @@ import com.cdyne.weather.types.GetCityWeatherByZIPResponse;
 import com.cdyne.weather.ws.WeatherSEI;
 import com.cdyne.weather.ws.WeatherService;
 
+/**
+ * 
+ * @author mauricioca
+ * 
+ * Observar que como la referencia es al Service no necesitamos especificar en @WebServiceRef(value =  WeatherService.class)
+ * dado que lo infiere del tipo. Comparar esto con WeatherServlet1.
+ *
+ */
 @WebServlet(name = "WeatherServlet0", urlPatterns = { "/WeatherServlet0" })
 public class WeatherServlet0 extends HttpServlet {
 	/**

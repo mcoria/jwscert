@@ -15,6 +15,14 @@ import com.cdyne.weather.types.GetCityWeatherByZIPResponse;
 import com.cdyne.weather.ws.WeatherSEI;
 import com.cdyne.weather.ws.WeatherService;
 
+/**
+ * 
+ * @author mauricioca
+ * 
+ * Observar que como la referencia es al SEI no necesitamos especificar en @WebServiceRef(value =  WeatherService.class)
+ * dado que lo infiere del tipo
+ *
+ */
 @WebServlet(name = "WeatherServlet1", urlPatterns = { "/WeatherServlet1" })
 public class WeatherServlet1 extends HttpServlet {
 	/**
@@ -23,9 +31,9 @@ public class WeatherServlet1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/*
-	 * Esta URI es resuelta por medio del catalogo
+	 * Hacemos referencia al SEI por lo tanto necesitamos saber cual es el Service que crea el proxy a este puerto
 	 */
-	@WebServiceRef(value =  WeatherService.class, wsdlLocation = "http://wsf.cdyne.com/WeatherWS/Weather.asmx")
+	@WebServiceRef(value =  WeatherService.class, wsdlLocation = "http://wsf.cdyne.com/WeatherWS/Weather.asmx?wsdl")
 	private WeatherSEI port;
 
 	
