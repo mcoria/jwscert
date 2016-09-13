@@ -21,6 +21,12 @@ import com.cdyne.weather.types.GetWeatherInformationResponse;
 import com.cdyne.weather.ws.WeatherSEI;
 import com.cdyne.weather.ws.WeatherService;
 
+/**
+ * 
+ * @author mauricio
+ *
+ * Muestra como invocar asincrono
+ */
 @WebServlet(name = "WeatherServlet3", urlPatterns = { "/WeatherServlet3" })
 public class WeatherServlet3 extends HttpServlet {
 	/**
