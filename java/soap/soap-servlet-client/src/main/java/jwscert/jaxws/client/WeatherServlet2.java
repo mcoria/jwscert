@@ -2,6 +2,8 @@ package jwscert.jaxws.client;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.ServletException;
@@ -9,14 +11,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.ws.AsyncHandler;
 import javax.xml.ws.BindingProvider;
+import javax.xml.ws.Response;
 import javax.xml.ws.WebServiceRef;
 
-import com.cdyne.weather.types.GetCityWeatherByZIP;
-import com.cdyne.weather.types.GetCityWeatherByZIPResponse;
+import com.cdyne.weather.types.ArrayOfWeatherDescription;
+import com.cdyne.weather.types.GetWeatherInformationResponse;
 import com.cdyne.weather.ws.WeatherSEI;
 import com.cdyne.weather.ws.WeatherService;
 
+/**
+ * 
+ * @author mauricio
+ *
+ * Muestra como invocar asincrono
+ */
 @WebServlet(name = "WeatherServlet2", urlPatterns = { "/WeatherServlet2" })
 public class WeatherServlet2 extends HttpServlet {
 	/**
@@ -64,14 +74,17 @@ public class WeatherServlet2 extends HttpServlet {
 			out.println("<body>");
 			out.println("<h1>Servlet GlobalWeatherServlet at " + request.getContextPath() + "</h1>");
 			
-			if (request.getParameter("zip") != null) {
-				out.println("<p>");
-				utils.jaxbObjectToXML(getCityWeatherByZIP(request.getParameter("zip")), out);
-				out.println("</p>");
-			} else {
-				out.println("<p> Please provide ZIP</p>");
-			}
-
+			out.println("<p>");
+			utils.jaxbObjectToXML(getWeatherInformation(), out);
+			out.println("</p>");
+			
+			out.println("<p>");
+			utils.jaxbObjectToXML(getWeatherInformationAsync(), out);
+			out.println("</p>");	
+			
+			out.println("<p>");
+			getWeatherInformationAsyncCallBack(out);
+			out.println("</p>");
 
 			out.println("</body>");
 			out.println("</html>");
@@ -84,10 +97,61 @@ public class WeatherServlet2 extends HttpServlet {
 	}
 
 	
-	private GetCityWeatherByZIPResponse getCityWeatherByZIP(String zip) {
-		GetCityWeatherByZIP request = new GetCityWeatherByZIP();
-		request.setZIP(zip);
-		return port.getCityWeatherByZIP(request);
+	private ArrayOfWeatherDescription getWeatherInformation() {
+		return port.getWeatherInformation();
+	}	
+	
+	private GetWeatherInformationResponse getWeatherInformationAsync() {
+		Response<GetWeatherInformationResponse> response = port.getWeatherInformationAsync();
+		
+		try {
+			while (!response.isDone()) {
+				Thread.sleep(500);
+			}
+			GetWeatherInformationResponse result = response.get();
+			return result;
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ExecutionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	private void getWeatherInformationAsyncCallBack(final PrintWriter out) {
+		Future<?> future = port.getWeatherInformationAsync(new AsyncHandler<GetWeatherInformationResponse>(){
+
+			@Override
+			public void handleResponse(Response<GetWeatherInformationResponse> response) {
+				try {
+					while (!response.isDone()) {
+						Thread.sleep(500);
+					}
+					GetWeatherInformationResponse result = response.get();
+					
+					utils.jaxbObjectToXML(result, out);
+					
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (ExecutionException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			
+		});
+		
+		try {
+			while (!future.isDone()) {
+				Thread.sleep(500);
+			}
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
     
     

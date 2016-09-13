@@ -3,11 +3,13 @@ package jwscert.jaxws.client;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.annotation.PostConstruct;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.ws.BindingProvider;
 import javax.xml.ws.WebServiceRef;
 
 import com.cdyne.weather.types.GetCityWeatherByZIP;
@@ -33,9 +35,22 @@ public class WeatherServlet1 extends HttpServlet {
 	/*
 	 * Hacemos referencia al SEI por lo tanto necesitamos saber cual es el Service que crea el proxy a este puerto
 	 */
-	@WebServiceRef(value =  WeatherService.class, wsdlLocation = "http://wsf.cdyne.com/WeatherWS/Weather.asmx?wsdl")
+	@WebServiceRef(WeatherService.class)
+	//@WebServiceRef(value =  WeatherService.class)
+	
+	/*
+	 * No hace falta inicializar en el @PostConstruct
+	 */
+	//@WebServiceRef(value =  WeatherService.class, wsdlLocation = "http://wsf.cdyne.com/WeatherWS/Weather.asmx?wsdl") 
 	private WeatherSEI port;
 
+	
+	@PostConstruct
+	private void setup(){
+		String endpointURL = "http://wsf.cdyne.com/WeatherWS/Weather.asmx";
+		BindingProvider bp = (BindingProvider) port;
+		bp.getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, endpointURL);		
+	}	
 	
 	private Utils utils = new Utils();
 	

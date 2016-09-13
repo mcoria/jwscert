@@ -2,51 +2,44 @@ package jwscert.jaxws.client;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Future;
 
-import javax.annotation.PostConstruct;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.xml.ws.AsyncHandler;
-import javax.xml.ws.BindingProvider;
-import javax.xml.ws.Response;
 import javax.xml.ws.WebServiceRef;
 
-import com.cdyne.weather.types.ArrayOfWeatherDescription;
-import com.cdyne.weather.types.GetWeatherInformationResponse;
+import com.cdyne.weather.types.GetCityWeatherByZIP;
+import com.cdyne.weather.types.GetCityWeatherByZIPResponse;
 import com.cdyne.weather.ws.WeatherSEI;
 import com.cdyne.weather.ws.WeatherService;
 
 /**
  * 
- * @author mauricio
+ * @author mauricioca
+ * 
+ * Observar que como la referencia es al SEI no necesitamos especificar en @WebServiceRef(value =  WeatherService.class)
+ * dado que lo infiere del tipo
  *
- * Muestra como invocar asincrono
  */
+/*
+ * Hacemos referencia al SEI por lo tanto necesitamos saber cual es el Service que crea el proxy a este puerto
+ */
+//@WebServiceRef(name="weatherPort",type=WeatherSEI.class,value=WeatherService.class, wsdlLocation = "http://wsf.cdyne.com/WeatherWS/Weather.asmx?wsdl")
+@WebServiceRef(name="weatherService",type=WeatherService.class, wsdlLocation = "http://wsf.cdyne.com/WeatherWS/Weather.asmx?wsdl")
 @WebServlet(name = "WeatherServlet3", urlPatterns = { "/WeatherServlet3" })
 public class WeatherServlet3 extends HttpServlet {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
 
-
-	@WebServiceRef(WeatherService.class)
-	private WeatherSEI port;
 	
-	
-	private Utils utils = new Utils();	
-	
-	@PostConstruct
-	private void setup(){
-		String endpointURL = "http://wsf.cdyne.com/WeatherWS/Weather.asmx";
-		BindingProvider bp = (BindingProvider) port;
-		bp.getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, endpointURL);		
-	}
+	private Utils utils = new Utils();
 	
 	/**
 	 * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -73,18 +66,14 @@ public class WeatherServlet3 extends HttpServlet {
 			out.println("</head>");
 			out.println("<body>");
 			out.println("<h1>Servlet GlobalWeatherServlet at " + request.getContextPath() + "</h1>");
-			
-			out.println("<p>");
-			utils.jaxbObjectToXML(getWeatherInformation(), out);
-			out.println("</p>");
-			
-			out.println("<p>");
-			utils.jaxbObjectToXML(getWeatherInformationAsync(), out);
-			out.println("</p>");	
-			
-			out.println("<p>");
-			getWeatherInformationAsyncCallBack(out);
-			out.println("</p>");
+
+			if (request.getParameter("zip") != null) {
+				out.println("<p>");
+				utils.jaxbObjectToXML(getCityWeatherByZIP(request.getParameter("zip")), out);
+				out.println("</p>");
+			} else {
+				out.println("<p> Please provide ZIP</p>");
+			}
 
 			out.println("</body>");
 			out.println("</html>");
@@ -96,64 +85,31 @@ public class WeatherServlet3 extends HttpServlet {
 		}
 	}
 
-	
-	private ArrayOfWeatherDescription getWeatherInformation() {
-		return port.getWeatherInformation();
-	}	
-	
-	private GetWeatherInformationResponse getWeatherInformationAsync() {
-		Response<GetWeatherInformationResponse> response = port.getWeatherInformationAsync();
-		
-		try {
-			while (!response.isDone()) {
-				Thread.sleep(500);
-			}
-			GetWeatherInformationResponse result = response.get();
-			return result;
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ExecutionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return null;
+	// doGet and doPost methods, which call processRequest, and
+	// getServletInfo method
+
+
+	private GetCityWeatherByZIPResponse getCityWeatherByZIP(String zip) {
+		GetCityWeatherByZIP request = new GetCityWeatherByZIP();
+		request.setZIP(zip);
+		return getPort().getCityWeatherByZIP(request);
 	}
 	
-	private void getWeatherInformationAsyncCallBack(final PrintWriter out) {
-		Future<?> future = port.getWeatherInformationAsync(new AsyncHandler<GetWeatherInformationResponse>(){
-
-			@Override
-			public void handleResponse(Response<GetWeatherInformationResponse> response) {
-				try {
-					while (!response.isDone()) {
-						Thread.sleep(500);
-					}
-					GetWeatherInformationResponse result = response.get();
-					
-					utils.jaxbObjectToXML(result, out);
-					
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (ExecutionException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-			
-		});
-		
-		try {
-			while (!future.isDone()) {
-				Thread.sleep(500);
-			}
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	private WeatherSEI getPort(){
+		//return (WeatherSEI) lookup("java:comp/env/weatherPort");
+		WeatherService service = (WeatherService) lookup("java:comp/env/weatherService");
+		return service.getWeatherSEI();
 	}
     
+
+	private Object lookup(String objectName) {
+		try {
+			InitialContext jndi = new InitialContext();
+			return jndi.lookup(objectName);
+		} catch (NamingException ex) {
+			throw new RuntimeException(ex);
+		}
+	}	
     
 	@Override
 	protected void doGet(HttpServletRequest arg0, HttpServletResponse arg1) throws ServletException, IOException {
