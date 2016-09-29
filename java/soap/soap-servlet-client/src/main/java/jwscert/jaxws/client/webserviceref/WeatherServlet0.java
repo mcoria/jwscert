@@ -1,15 +1,14 @@
-package jwscert.jaxws.client;
+package jwscert.jaxws.client.webserviceref;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.ws.BindingProvider;
 import javax.xml.ws.WebServiceRef;
 
 import com.cdyne.weather.types.GetCityWeatherByZIP;
@@ -17,30 +16,68 @@ import com.cdyne.weather.types.GetCityWeatherByZIPResponse;
 import com.cdyne.weather.ws.WeatherSEI;
 import com.cdyne.weather.ws.WeatherService;
 
+import jwscert.jaxws.client.Utils;
+
 /**
  * 
  * @author mauricioca
  * 
- * Observar que como la referencia es al SEI no necesitamos especificar en @WebServiceRef(value =  WeatherService.class)
- * dado que lo infiere del tipo
+ * Observar que como la referencia es al Service no necesitamos especificar en @WebServiceRef(type=WeatherService.class)
+ * dado que lo infiere del tipo. Comparar esto con WeatherServlet1.
  *
  */
-/*
- * Hacemos referencia al SEI por lo tanto necesitamos saber cual es el Service que crea el proxy a este puerto
- */
-//@WebServiceRef(name="weatherPort",type=WeatherSEI.class,value=WeatherService.class, wsdlLocation = "http://wsf.cdyne.com/WeatherWS/Weather.asmx?wsdl")
-@WebServiceRef(name="weatherService",type=WeatherService.class, wsdlLocation = "http://wsf.cdyne.com/WeatherWS/Weather.asmx?wsdl")
-@WebServlet(name = "WeatherServlet3", urlPatterns = { "/WeatherServlet3" })
-public class WeatherServlet3 extends HttpServlet {
+@WebServlet(name = "WeatherServlet0", urlPatterns = { "/WeatherServlet0" })
+public class WeatherServlet0 extends HttpServlet {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
+	/*
+	 * Resuelve el WSDL de acuerdo a lo que esta definido por defecto en
+	 * GlobalWeather
+	 */
+	//@WebServiceRef
+
+	/*
+	 * Busca el WSDL en el server, no utiliza el catalogo
+	 */
+	// @WebServiceRef(wsdlLocation =
+	// "http://www.webservicex.net/globalweather.asmx?wsdl")
+
+	/*
+	 * Esta URI es resuelta por medio del catalogo
+	 */
+	// @WebServiceRef(wsdlLocation = "http://localhost/weather.wsdl")
 
 	
-	private Utils utils = new Utils();
+	/*
+	 * Funciona, es logico y redundante dado que type indica el tipo
+	 * ...... es un tanto ilogico pues @WebServiceRef(type=WeatherSEI.class) funcionan tambien
+	 */
+	//@WebServiceRef(type=WeatherService.class)
 	
+	
+	/*
+	 * Falla en runtime: A WebService annotation is not present on class: com.cdyne.weather.ws.WeatherService]
+	 */	
+	//@WebServiceRef(value=WeatherService.class)
+	
+	
+	/*
+	 * Falla en runtime: A WebService annotation is not present on class: com.cdyne.weather.ws.WeatherService]
+	 */	
+	//@WebServiceRef(WeatherService.class)
+	
+	
+	/*
+	 * Funciona, jajaj... POR QUE???!?!?!?!?!
+	 */	
+	@WebServiceRef(type=WeatherSEI.class)	
+	private WeatherService service;
+
+	
+	private Utils utils = new Utils();	
 	/**
 	 * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
 	 * methods.
@@ -90,26 +127,21 @@ public class WeatherServlet3 extends HttpServlet {
 
 
 	private GetCityWeatherByZIPResponse getCityWeatherByZIP(String zip) {
+		WeatherSEI port = getPort();
 		GetCityWeatherByZIP request = new GetCityWeatherByZIP();
 		request.setZIP(zip);
-		return getPort().getCityWeatherByZIP(request);
+		return port.getCityWeatherByZIP(request);
 	}
 	
-	private WeatherSEI getPort(){
-		//return (WeatherSEI) lookup("java:comp/env/weatherPort");
-		WeatherService service = (WeatherService) lookup("java:comp/env/weatherService");
-		return service.getWeatherSEI();
+
+	public WeatherSEI getPort() {
+		String endpointURL = "http://wsf.cdyne.com/WeatherWS/Weather.asmx";
+		WeatherSEI port = service.getWeatherSEI();
+		BindingProvider bp = (BindingProvider) port;
+		bp.getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, endpointURL);
+		return port;
 	}
     
-
-	private Object lookup(String objectName) {
-		try {
-			InitialContext jndi = new InitialContext();
-			return jndi.lookup(objectName);
-		} catch (NamingException ex) {
-			throw new RuntimeException(ex);
-		}
-	}	
     
 	@Override
 	protected void doGet(HttpServletRequest arg0, HttpServletResponse arg1) throws ServletException, IOException {

@@ -1,4 +1,4 @@
-package jwscert.jaxws.client;
+package jwscert.jaxws.client.webserviceref;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -20,6 +20,8 @@ import com.cdyne.weather.types.ArrayOfWeatherDescription;
 import com.cdyne.weather.types.GetWeatherInformationResponse;
 import com.cdyne.weather.ws.WeatherSEI;
 import com.cdyne.weather.ws.WeatherService;
+
+import jwscert.jaxws.client.Utils;
 
 /**
  * 
