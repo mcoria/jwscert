@@ -36,6 +36,11 @@ public class WeatherServlet1 extends HttpServlet {
 	 * Hacemos referencia al SEI por lo tanto necesitamos saber cual es el Service que crea el proxy a este puerto
 	 */
 	@WebServiceRef(WeatherService.class)
+	
+
+	/*
+	 * Lo anterior es lo mismo que esto, la propiedad value del annotation indica el servicio y el type lo infiere 
+	 */
 	//@WebServiceRef(value =  WeatherService.class)
 	
 	/*
