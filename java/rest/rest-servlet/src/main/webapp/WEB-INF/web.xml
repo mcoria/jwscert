@@ -4,6 +4,8 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	id="WebApp_ID" version="3.0">
 	<display-name>Servlet 3.0 Web Application</display-name>
+	
+	<!-- 
 	<servlet>
 		<servlet-name>Jersey Web Application</servlet-name>
 		<servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
@@ -23,4 +25,5 @@
 	<session-config>
 		<session-timeout>30</session-timeout>
 	</session-config>
+	 -->
 </web-app>

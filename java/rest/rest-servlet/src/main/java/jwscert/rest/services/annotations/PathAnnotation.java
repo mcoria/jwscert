@@ -1,4 +1,4 @@
-package jwscert.rest.services;
+package jwscert.rest.services.annotations;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
