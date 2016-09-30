@@ -14,7 +14,6 @@
 	<name>REST Parent POM</name>
 	
 	<modules>
-		<module>rest-api</module>
 		<module>rest-servlet</module>
 		<module>rest-jee</module>
 		<module>rest-client</module>
@@ -24,13 +23,6 @@
 		<jersey.version>1.19</jersey.version>
 		<jaxrs.version>1.1.1</jaxrs.version>
 	</properties>
-
-	<dependencies>
-		<dependency>
-			<groupId>javax.ws.rs</groupId>
-			<artifactId>jsr311-api</artifactId>
-			<version>${jaxrs.version}</version>
-		</dependency>	
-	</dependencies>
-
+	
+	
 </project>

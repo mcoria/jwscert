@@ -1,6 +1,8 @@
 package jwscert.rest.services.book;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
@@ -13,7 +15,6 @@ import com.sun.jersey.api.client.GenericType;
 import com.sun.jersey.api.client.WebResource;
 
 import jwscert.rest.services.BaseTest;
-import jwscert.rest.model.Book;
 
 public class JsonSearchBooksTest extends BaseTest  {
 

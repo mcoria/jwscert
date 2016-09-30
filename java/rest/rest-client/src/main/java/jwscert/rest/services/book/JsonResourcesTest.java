@@ -8,14 +8,13 @@ import java.util.List;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response.Status;
 
-import jwscert.rest.model.Book;
-import jwscert.rest.services.BaseTest;
-
 import org.junit.Test;
 
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.GenericType;
 import com.sun.jersey.api.client.WebResource;
+
+import jwscert.rest.services.BaseTest;
 
 public class JsonResourcesTest extends BaseTest {
 
