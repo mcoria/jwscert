@@ -13,19 +13,30 @@
 	<packaging>ear</packaging>
 	<name>REST EAR assembly</name>
 
+ 
 	<dependencies>
 		<dependency>
 			<groupId>kano</groupId>
 			<artifactId>rest-jee-war</artifactId>
 			<version>${project.version}</version>
-			<type>war</type>
+			<type>war</type>		
+		</dependency>
+		<dependency>
+			<groupId>kano</groupId>
+			<artifactId>rest-jee-ejbs</artifactId>
+			<version>${project.version}</version>
+			<type>ejb</type>
 		</dependency>
 	</dependencies>
-
+	
+ 
+ 
+ 
 	<build>
 		<plugins>
 			<plugin>
 				<artifactId>maven-ear-plugin</artifactId>
+				<version>2.10.1</version>
 				<configuration>
 					<displayName>My First EAR</displayName>
 					<archive>
@@ -37,8 +48,12 @@
 						<webModule>
 							<groupId>kano</groupId>
 							<artifactId>rest-jee-war</artifactId>
-							<contextRoot>/rest-servlet</contextRoot>
+							<contextRoot>/rest-jee-war</contextRoot>
 						</webModule>
+						<ejbModule>
+							<groupId>kano</groupId>
+							<artifactId>rest-jee-ejbs</artifactId>							
+						</ejbModule>`
 					</modules>
 				</configuration>
 			</plugin>

@@ -13,16 +13,16 @@
 	<packaging>pom</packaging>
 	<name>REST Parent POM</name>
 	
+	<properties>
+		<jersey.version>1.19</jersey.version>
+		<jaxrs.version>1.1.1</jaxrs.version>
+	</properties>
+		
 	<modules>
 		<module>rest-servlet</module>
 		<module>rest-jee</module>
 		<module>rest-client</module>
 	</modules>
-
-	<properties>
-		<jersey.version>1.19</jersey.version>
-		<jaxrs.version>1.1.1</jaxrs.version>
-	</properties>
 	
 	
 </project>
