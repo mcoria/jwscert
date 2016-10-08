@@ -5,7 +5,7 @@
 
 	<parent>
 		<groupId>kano</groupId>
-		<artifactId>rest-jee</artifactId>
+		<artifactId>rest-parent</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 
@@ -17,13 +17,13 @@
 	<dependencies>
 		<dependency>
 			<groupId>kano</groupId>
-			<artifactId>rest-jee-war</artifactId>
+			<artifactId>rest-servlet-server</artifactId>
 			<version>${project.version}</version>
 			<type>war</type>		
 		</dependency>
 		<dependency>
 			<groupId>kano</groupId>
-			<artifactId>rest-jee-ejbs</artifactId>
+			<artifactId>rest-ejb-server</artifactId>
 			<version>${project.version}</version>
 			<type>ejb</type>
 		</dependency>
@@ -45,12 +45,12 @@
 					<modules>
 						<webModule>
 							<groupId>kano</groupId>
-							<artifactId>rest-jee-war</artifactId>
-							<contextRoot>/rest-jee-war</contextRoot>
+							<artifactId>rest-servlet-server</artifactId>
+							<contextRoot>/rest-servlet-server</contextRoot>
 						</webModule>
 						<ejbModule>
 							<groupId>kano</groupId>
-							<artifactId>rest-jee-ejbs</artifactId>							
+							<artifactId>rest-ejb-server</artifactId>							
 						</ejbModule>`
 					</modules>
 				</configuration>

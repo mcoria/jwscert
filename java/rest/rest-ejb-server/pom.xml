@@ -4,12 +4,12 @@
 
 	<parent>
 		<groupId>kano</groupId>
-		<artifactId>rest-jee</artifactId>
+		<artifactId>rest-parent</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 	
 
-	<artifactId>rest-jee-ejbs</artifactId>
+	<artifactId>rest-ejb-server</artifactId>
 	<packaging>ejb</packaging>
 	<name>REST EJBs Module</name>
 
