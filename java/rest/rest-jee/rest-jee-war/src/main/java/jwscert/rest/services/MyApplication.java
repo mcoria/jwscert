@@ -6,17 +6,14 @@ import java.util.Set;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
-import jwscert.rest.services.ejb.EjbBean;
-
-@ApplicationPath("/jaxrs")
+@ApplicationPath("/rest1")
 public class MyApplication extends Application {
 	@Override
 	public Set<Class<?>> getClasses() {
 		Set<Class<?>> s = new HashSet<Class<?>>();
 		s.add(MyTest.class);
 		s.add(MyEjbResource1.class);
-		s.add(MyEjbResource1.class);
-		s.add(EjbBean.class);
+		s.add(MyEjbResource2.class);
 		//s.add(PathAnnotation.class);
 		//s.add(MediaTypeAnnotation.class);
 		//s.add(JsonResources.class);

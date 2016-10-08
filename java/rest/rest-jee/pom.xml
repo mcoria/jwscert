@@ -16,7 +16,6 @@
 		<module>rest-jee-ejbs</module>
 		<module>rest-jee-war</module>
 		<module>rest-jee-ear</module>
-		<module>rest-jee-war-standalone</module>
 	</modules>
 
 	<dependencies>
