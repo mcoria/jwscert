@@ -5,7 +5,7 @@ import javax.jws.WebService;
 import javax.xml.ws.Action;
 
 @WebService
-public interface ITest {
+public interface ServiceEndpointInterface {
 	
 	@WebMethod
 	@Action(input="http://localhost/hola_in",

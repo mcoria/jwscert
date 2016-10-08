@@ -17,7 +17,7 @@ public class ServiceWithExceptions {
 	@WebMethod
 	public void testOperation(String str) throws AppException, Exception{
 		if ("AppException".equals(str)){
-			throw new AppException();
+			throw new AppException("Esta es una AppException");
 		}
 		if ("RuntimeException".equals(str)){
 			throw new RuntimeException("Esta es una RuntimeException");
