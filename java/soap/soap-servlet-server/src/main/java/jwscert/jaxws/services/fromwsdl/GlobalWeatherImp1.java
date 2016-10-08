@@ -4,7 +4,10 @@ import javax.jws.WebService;
 
 import net.webservicex.GlobalWeather;
 
-@WebService(serviceName="GlobalWeatherService1", portName="GlobalWeatherPort1", endpointInterface="net.webservicex.GlobalWeather", targetNamespace="http://www.webserviceX.NET")
+@WebService(serviceName="GlobalWeatherService1", 
+			portName="GlobalWeatherPort1", 
+			endpointInterface="net.webservicex.GlobalWeather", 
+			targetNamespace="http://www.webserviceX.NET")
 public class GlobalWeatherImp1 implements GlobalWeather {
 
 	@Override

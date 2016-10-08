@@ -5,22 +5,21 @@ import javax.jws.WebService;
 import net.webservicex.GlobalWeather;
 
 
-@WebService(
-wsdlLocation = "WEB-INF/wsdl/globalweather.wsdl",
-serviceName="GlobalWeatherService", 
-portName="GlobalWeatherPort", 
-endpointInterface="net.webservicex.GlobalWeather",
-targetNamespace="http://www.webserviceX.NET")
+@WebService(serviceName="GlobalWeatherService", 
+			portName="GlobalWeatherPort", 
+			endpointInterface="net.webservicex.GlobalWeather",
+			targetNamespace="http://www.webserviceX.NET",
+			wsdlLocation = "WEB-INF/wsdl/globalweather.wsdl")
 public class GlobalWeatherImp2 implements GlobalWeather{
 
 	@Override
 	public String getWeather(String cityName, String countryName) {
-		return "Hola";
+		return "GlobalWeatherImp2";
 	}
 
 	@Override
 	public String getCitiesByCountry(String countryName) {
-		return "Hola";
+		return "GlobalWeatherImp2";
 	}
 
 }

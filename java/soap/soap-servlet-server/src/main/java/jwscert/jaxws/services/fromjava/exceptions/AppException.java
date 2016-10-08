@@ -1,6 +1,6 @@
 package jwscert.jaxws.services.fromjava.exceptions;
 
-public class MyAppException extends Exception {
+public class AppException extends Exception {
 
 	/**
 	 * 
