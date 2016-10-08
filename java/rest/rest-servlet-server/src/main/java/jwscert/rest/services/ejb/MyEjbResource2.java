@@ -1,12 +1,12 @@
-package jwscert.rest.services;
+package jwscert.rest.services.ejb;
 
 import javax.ejb.Stateless;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 
-@Path("/ejbwar1")
+@Path("/ejbwar2")
 @Stateless
-public class MyEjbResource1 {
+public class MyEjbResource2 {
 	
 
 	@GET
