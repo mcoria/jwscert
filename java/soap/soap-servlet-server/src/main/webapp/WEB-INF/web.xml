@@ -1,38 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
-  <display-name>JEE 6 - Web Application</display-name>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
+	<display-name>JEE 6 - Web Application</display-name>
 
 
-  <servlet>
-    <servlet-name>GlobalWeatherImp0</servlet-name>
-    <servlet-class>jwscert.jaxws.services.fromwsdl.GlobalWeatherImp0</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>GlobalWeatherImp0</servlet-name>
-    <url-pattern>/GlobalWeather0</url-pattern>
-  </servlet-mapping>
+	<servlet>
+		<servlet-name>GlobalWeatherImp0</servlet-name>
+		<servlet-class>jwscert.jaxws.services.fromwsdl.GlobalWeatherImp0</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GlobalWeatherImp0</servlet-name>
+		<url-pattern>/GlobalWeather0</url-pattern>
+	</servlet-mapping>
 
- 
-  <servlet>
-    <servlet-name>GlobalWeatherImp1</servlet-name>
-    <servlet-class>jwscert.jaxws.services.fromwsdl.GlobalWeatherImp1</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>GlobalWeatherImp1</servlet-name>
-    <url-pattern>/GlobalWeather1</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-    <servlet-name>GlobalWeatherImp2</servlet-name>
-    <servlet-class>jwscert.jaxws.services.fromwsdl.GlobalWeatherImp2</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>GlobalWeatherImp2</servlet-name>
-    <url-pattern>/GlobalWeather2</url-pattern>
-  </servlet-mapping> 
 
- 
-  <session-config>
-    <session-timeout>60</session-timeout>
-  </session-config>
+	<servlet>
+		<servlet-name>GlobalWeatherImp1</servlet-name>
+		<servlet-class>jwscert.jaxws.services.fromwsdl.GlobalWeatherImp1</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GlobalWeatherImp1</servlet-name>
+		<url-pattern>/GlobalWeather1</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>GlobalWeatherImp2</servlet-name>
+		<servlet-class>jwscert.jaxws.services.fromwsdl.GlobalWeatherImp2</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GlobalWeatherImp2</servlet-name>
+		<url-pattern>/GlobalWeather2</url-pattern>
+	</servlet-mapping>
+
+
+	<session-config>
+		<session-timeout>60</session-timeout>
+	</session-config>
 </web-app>
