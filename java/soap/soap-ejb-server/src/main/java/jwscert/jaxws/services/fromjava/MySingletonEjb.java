@@ -7,6 +7,6 @@ import javax.jws.WebService;
 @Singleton
 public class MySingletonEjb {
 	public String hello(String param){
-		return "Hello " + param;
+		return "Hello MySingletonEjb " + param;
 	}
 }

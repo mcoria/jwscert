@@ -7,6 +7,6 @@ import javax.jws.WebService;
 @Stateless
 public class MyStatelessEjb {
 	public String hello(String param){
-		return "Hello " + param;
+		return "Hello MyStatelessEjb " + param;
 	}
 }

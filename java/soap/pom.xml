@@ -12,14 +12,22 @@
 	<packaging>pom</packaging>
 	<name>SOAP Parent POM</name>
 
+	<properties>
+		<metro.verion>2.3.1</metro.verion>
+		<!-- metro.verion>2.2.0-1</metro.verion -->
+	</properties>
+	
 	<modules>
 		<module>soap-ejb-server</module>
 		<module>soap-servlet-client</module>
 		<module>soap-servlet-server</module>
 		<module>soap-handlers</module>
-		<module>soap-security</module>
+		<module>soap-jee-security</module>
 		<module>soap-mtom</module>
 		<module>soap-addressing</module>
+		<module>soap-lowlevel-server</module>
+		<module>soap-message-security</module>
+		<module>soap-javase-server</module>
   </modules>
 
 	<dependencyManagement>
