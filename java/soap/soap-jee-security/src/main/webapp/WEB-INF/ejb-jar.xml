@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ejb-jar version="3.1" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/ejb-jar_3_1.xsd">
+
+<!-- 
+	<enterprise-beans>
+		<session>
+			<ejb-name>AppSecurity1</ejb-name>
+			<ejb-class>org.soap.security.AppSecurity1</ejb-class>
+			<session-type>Stateless</session-type>
+			<security-role-ref>
+				<role-name>ADMINS</role-name>
+				<role-link>administrador</role-link>
+			</security-role-ref>
+			<security-role-ref>
+				<role-name>USERS</role-name>
+				<role-link>usuario</role-link>
+			</security-role-ref>
+		</session>
+	</enterprise-beans>
+ -->
+	<assembly-descriptor>
+		<security-role>
+			<role-name>admins</role-name>
+		</security-role>
+		<security-role>
+			<role-name>users</role-name>
+		</security-role>		
+	</assembly-descriptor>
+
+</ejb-jar>

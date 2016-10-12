@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE glassfish-web-app PUBLIC "-//GlassFish.org//DTD GlassFish Application Server 3.1 Servlet 3.0//EN" "http://glassfish.org/dtds/glassfish-web-app_3_0-1.dtd">
-<glassfish-web-app>
+<!DOCTYPE glassfish-ejb-jar PUBLIC "-//GlassFish.org//DTD GlassFish Application Server 3.1 EJB 3.1//EN" "http://glassfish.org/dtds/glassfish-ejb-jar_3_1-1.dtd">
+<glassfish-ejb-jar>
 	<security-role-mapping>
         <role-name>admins</role-name>
         <group-name>adm</group-name>
@@ -9,17 +9,19 @@
         <role-name>users</role-name>
         <group-name>usr</group-name>
     </security-role-mapping>
-    <!-- 
-    <servlet>
-    	<servlet-name>AppSecurity0</servlet-name>
+	<enterprise-beans>
+		<ejb>
+			<ejb-name>AppSecurity1</ejb-name>
 			<webservice-endpoint>
-				<port-component-name>AppSecurity0</port-component-name>
+				<port-component-name>AppSecurity1</port-component-name>
+				<endpoint-address-uri>/AppSecurity1</endpoint-address-uri>
 				<login-config>
 					<auth-method>BASIC</auth-method>
+					<realm>file</realm>
 				</login-config>
 				<transport-guarantee>CONFIDENTIAL</transport-guarantee>
 				<debugging-enabled>true</debugging-enabled>
 			</webservice-endpoint>
-    </servlet>
-     -->
-</glassfish-web-app>
+		</ejb>
+	</enterprise-beans>
+</glassfish-ejb-jar>
