@@ -33,9 +33,40 @@
 		<servlet-name>GlobalWeatherImp2</servlet-name>
 		<url-pattern>/GlobalWeather2</url-pattern>
 	</servlet-mapping>
+	
+	<!-- 
+	<servlet>
+		<servlet-name>jwscert.jaxws.services.fromjava.ServiceImplementationBean</servlet-name>
+		<servlet-class>jwscert.jaxws.services.fromjava.ServiceImplementationBean</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>jwscert.jaxws.services.fromjava.ServiceImplementationBean</servlet-name>
+		<url-pattern>/ServiceImplementationBean</url-pattern>
+	</servlet-mapping>
+	-->
 
-
+	<servlet>
+		<servlet-name>jwscert.jaxws.services.fromjava.twoendpoints.HelloSIB0</servlet-name>
+		<servlet-class>jwscert.jaxws.services.fromjava.twoendpoints.HelloSIB0</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>jwscert.jaxws.services.fromjava.twoendpoints.HelloSIB0</servlet-name>
+		<url-pattern>/HelloSEI11</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>jwscert.jaxws.services.fromjava.twoendpoints.HelloSIB1</servlet-name>
+		<servlet-class>jwscert.jaxws.services.fromjava.twoendpoints.HelloSIB1</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>jwscert.jaxws.services.fromjava.twoendpoints.HelloSIB1</servlet-name>
+		<url-pattern>/HelloSEI12</url-pattern>
+	</servlet-mapping>	
+	
 	<session-config>
-		<session-timeout>60</session-timeout>
+		<session-timeout>1</session-timeout>
 	</session-config>
 </web-app>

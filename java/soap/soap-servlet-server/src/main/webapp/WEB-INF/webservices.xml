@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webservices version="1.3"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:ns1="http://fromconfig.services.jaxws.jwscert/"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/javaee_web_services_1_3.xsd">
+	<webservice-description>
+		<webservice-description-name>TheEndpoint</webservice-description-name>
+		<port-component>
+			<port-component-name>HelloSIB</port-component-name>
+			<wsdl-service>ns1:TheService</wsdl-service>  
+			<wsdl-port>ns1:ThePort</wsdl-port>
+			<!--
+			<enable-mtom>true</enable-mtom>
+			<addressing>
+				<enabled>true</enabled>
+				<required>false</required>
+			</addressing>
+			 -->
+			<service-endpoint-interface>jwscert.jaxws.services.fromjava.HelloSEI</service-endpoint-interface>
+			<service-impl-bean>
+				<servlet-link>jwscert.jaxws.services.fromjava.HelloSIB</servlet-link>
+			</service-impl-bean>
+		</port-component>
+	</webservice-description>
+</webservices>
