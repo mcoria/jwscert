@@ -8,13 +8,13 @@
 	<security-role-mapping>
         <role-name>users</role-name>
         <group-name>usr</group-name>
-    </security-role-mapping>
+    </security-role-mapping>    
 	<enterprise-beans>
 		<ejb>
-			<ejb-name>AppSecurity1</ejb-name>
+			<ejb-name>EjbSecurity</ejb-name>
 			<webservice-endpoint>
-				<port-component-name>AppSecurity1</port-component-name>
-				<endpoint-address-uri>/AppSecurity1</endpoint-address-uri>
+				<port-component-name>EjbSecurity</port-component-name>
+				<endpoint-address-uri>/EjbSecurity</endpoint-address-uri>
 				<login-config>
 					<auth-method>BASIC</auth-method>
 					<realm>file</realm>

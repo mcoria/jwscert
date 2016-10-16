@@ -9,6 +9,10 @@
         <role-name>users</role-name>
         <group-name>usr</group-name>
     </security-role-mapping>
+	<security-role-mapping>
+        <role-name>SERVICE_ACCOUNT</role-name>
+        <principal-name>theserviceaccount</principal-name>
+    </security-role-mapping>     
     <!-- 
     <servlet>
     	<servlet-name>AppSecurity0</servlet-name>

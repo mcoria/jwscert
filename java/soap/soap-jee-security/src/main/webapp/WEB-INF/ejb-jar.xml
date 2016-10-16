@@ -3,30 +3,48 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/ejb-jar_3_1.xsd">
 
-<!-- 
+<!--
 	<enterprise-beans>
 		<session>
 			<ejb-name>AppSecurity1</ejb-name>
 			<ejb-class>org.soap.security.AppSecurity1</ejb-class>
 			<session-type>Stateless</session-type>
+			 
 			<security-role-ref>
 				<role-name>ADMINS</role-name>
-				<role-link>administrador</role-link>
+				<role-link>admins</role-link>
 			</security-role-ref>
 			<security-role-ref>
 				<role-name>USERS</role-name>
-				<role-link>usuario</role-link>
+				<role-link>users</role-link>
 			</security-role-ref>
+			 
 		</session>
 	</enterprise-beans>
- -->
+	<enterprise-beans>
+		<session>
+			<ejb-name>MyEJB</ejb-name>
+			<ejb-class>org.soap.security.ejb.MyEJB</ejb-class>
+			<session-type>Singleton</session-type>
+			<security-role-ref>
+				<role-name></role-name>
+				<role-link></role-link>
+			</security-role-ref>
+			<security-role-ref>
+				<role-name></role-name>
+				<role-link></role-link>
+			</security-role-ref>			
+		</session>
+	</enterprise-beans>
+-->		
+
 	<assembly-descriptor>
 		<security-role>
 			<role-name>admins</role-name>
 		</security-role>
 		<security-role>
 			<role-name>users</role-name>
-		</security-role>		
+		</security-role>
 	</assembly-descriptor>
 
 </ejb-jar>

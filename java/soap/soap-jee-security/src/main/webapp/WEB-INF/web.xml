@@ -11,31 +11,25 @@
    </security-role>
    <security-role>
    		<role-name>users</role-name>
-   </security-role>   
+   </security-role>
+   <security-role>
+   		<role-name>SERVICE_ACCOUNT</role-name>
+   </security-role>    
    
-	<servlet>
-		<servlet-name>TransportSecurity</servlet-name>
-		<servlet-class>org.soap.security.TransportSecurity</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>TransportSecurity</servlet-name>
-		<url-pattern>/TransportSecurity</url-pattern>
-	</servlet-mapping>
 	<security-constraint>
 		<web-resource-collection>
-			<web-resource-name>TransportSecurity</web-resource-name>
-			<url-pattern>/TransportSecurity</url-pattern>
+			<web-resource-name>TransportSecurityService</web-resource-name>
+			<url-pattern>/TransportSecurityService</url-pattern>
 			<http-method>POST</http-method>
 		</web-resource-collection>
 		<user-data-constraint>
 			<transport-guarantee>CONFIDENTIAL</transport-guarantee>
 		</user-data-constraint>		
 	</security-constraint>
-		
 
 	<servlet>
-		<servlet-name>AppSecurity0</servlet-name>
-		<servlet-class>org.soap.security.AppSecurity0</servlet-class>
+		<servlet-name>org.soap.security.ServletSecurity</servlet-name>
+		<servlet-class>org.soap.security.ServletSecurity</servlet-class>
 		<security-role-ref>
 			<role-name>ADMINS</role-name>
 			<role-link>admins</role-link>
@@ -46,17 +40,33 @@
 		</security-role-ref>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>AppSecurity0</servlet-name>
-		<url-pattern>/AppSecurity0</url-pattern>
+		<servlet-name>org.soap.security.ServletSecurity</servlet-name>
+		<url-pattern>/ServletSecurityService</url-pattern>
 	</servlet-mapping>
-
+	
+	<servlet>
+		<servlet-name>org.soap.security.RunAsServletSecurity</servlet-name>
+		<servlet-class>org.soap.security.RunAsServletSecurity</servlet-class>
+		<run-as>
+			<role-name>SERVICE_ACCOUNT</role-name>
+		</run-as>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>org.soap.security.RunAsServletSecurity</servlet-name>
+		<url-pattern>/RunAsServletSecurityService</url-pattern>
+	</servlet-mapping>
 
 	<security-constraint>
 		<web-resource-collection>
-			<web-resource-name>AppSecurity0</web-resource-name>
-			<url-pattern>/AppSecurity0</url-pattern>
+			<web-resource-name>ServletSecurityService</web-resource-name>
+			<url-pattern>/ServletSecurityService</url-pattern>
 			<http-method>POST</http-method>
 		</web-resource-collection>
+		<web-resource-collection>
+			<web-resource-name>RunAsServletSecurityService</web-resource-name>
+			<url-pattern>/RunAsServletSecurityService</url-pattern>
+			<http-method>POST</http-method>
+		</web-resource-collection>			
 		<auth-constraint>
 			<role-name>admins</role-name>
 			<role-name>users</role-name>
