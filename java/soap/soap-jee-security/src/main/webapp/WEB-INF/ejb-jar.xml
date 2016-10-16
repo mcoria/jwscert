@@ -36,7 +36,7 @@
 			</security-role-ref>			
 		</session>
 	</enterprise-beans>
--->		
+-->
 
 	<assembly-descriptor>
 		<security-role>
@@ -44,6 +44,9 @@
 		</security-role>
 		<security-role>
 			<role-name>users</role-name>
+		</security-role>
+		<security-role>
+			<role-name>SERVICE_ACCOUNT</role-name>
 		</security-role>
 	</assembly-descriptor>
 

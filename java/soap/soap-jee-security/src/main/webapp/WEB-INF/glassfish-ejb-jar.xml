@@ -8,7 +8,11 @@
 	<security-role-mapping>
         <role-name>users</role-name>
         <group-name>usr</group-name>
-    </security-role-mapping>    
+    </security-role-mapping>   
+	<security-role-mapping>
+        <role-name>SERVICE_ACCOUNT</role-name>
+        <principal-name>theserviceaccount</principal-name>
+    </security-role-mapping>     
 	<enterprise-beans>
 		<ejb>
 			<ejb-name>EjbSecurity</ejb-name>
@@ -23,5 +27,18 @@
 				<debugging-enabled>true</debugging-enabled>
 			</webservice-endpoint>
 		</ejb>
+		<ejb>
+			<ejb-name>RunAsEjbSecurity</ejb-name>
+			<webservice-endpoint>
+				<port-component-name>RunAsEjbSecurity</port-component-name>
+				<endpoint-address-uri>/RunAsEjbSecurity</endpoint-address-uri>
+				<login-config>
+					<auth-method>BASIC</auth-method>
+					<realm>file</realm>
+				</login-config>
+				<transport-guarantee>CONFIDENTIAL</transport-guarantee>
+				<debugging-enabled>true</debugging-enabled>
+			</webservice-endpoint>
+		</ejb>		
 	</enterprise-beans>
 </glassfish-ejb-jar>
