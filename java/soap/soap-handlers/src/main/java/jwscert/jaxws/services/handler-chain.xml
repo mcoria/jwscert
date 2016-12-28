@@ -1,12 +1,25 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<handler-chains xmlns="http://java.sun.com/xml/ns/javaee">
-  <handler-chain>
-    <handler>
-    
-      <handler-class>jwscert.jaxws.services.HolaLogicalHandler</handler-class>
-    </handler>
-    <handler>
-      <handler-class>jwscert.jaxws.services.HolaSOAPHandler</handler-class>
-    </handler>    
-  </handler-chain> 
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<handler-chains 
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/javaee_web_services_metadata_handler_2_0.xsd">
+	<handler-chain>
+		<handler>
+			<handler-name>LogicalHandler1</handler-name>
+			<handler-class>jwscert.jaxws.services.LogicalHandler1</handler-class>
+		</handler>
+		<handler>
+			<handler-name>LogicalHandler2</handler-name>
+			<handler-class>jwscert.jaxws.services.LogicalHandler2</handler-class>
+		</handler>
+		<handler>
+			<handler-name>SOAPHandler1</handler-name>
+			<handler-class>jwscert.jaxws.services.SOAPHandler1</handler-class>
+		</handler>
+		<handler>
+			<handler-name>SOAPHandler2</handler-name>
+			<handler-class>jwscert.jaxws.services.SOAPHandler2</handler-class>
+		</handler>
+	</handler-chain>
 </handler-chains>

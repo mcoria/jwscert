@@ -11,8 +11,7 @@ import jwscert.jaxws.services.generated.Hola;
 		serviceName="HolaService", 
 		portName="HolaServicePort", 
 		endpointInterface="jwscert.jaxws.services.generated.Hola",
-		targetNamespace = "http://www.example.org/Hola/",
-		wsdlLocation="WEB-INF/wsdl/HolaService.wsdl"
+		targetNamespace = "http://www.example.org/Hola/"
 		)
 @HandlerChain(file="handler-chain.xml")
 public class HolaImp implements Hola {
@@ -23,6 +22,10 @@ public class HolaImp implements Hola {
 	@Override
 	public String test(String in) {
 		System.out.println("HolaImp .... processing");
+		
+		if ("fail".equals(in)){
+			throw new RuntimeException("RuntimeException...");
+		}
 		return in;
 	}
 
