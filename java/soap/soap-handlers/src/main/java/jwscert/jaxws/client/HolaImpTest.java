@@ -1,4 +1,4 @@
-package jwscert.jaxws.services;
+package jwscert.jaxws.client;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -12,21 +12,24 @@ import javax.xml.ws.handler.HandlerResolver;
 import javax.xml.ws.handler.PortInfo;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
+import jwscert.jaxws.services.LogicalHandler1;
+import jwscert.jaxws.services.LogicalHandler2;
+import jwscert.jaxws.services.SOAPHandler1;
+import jwscert.jaxws.services.SOAPHandler2;
 import jwscert.jaxws.services.generated.Hola;
 import jwscert.jaxws.services.generated.HolaService;
 
-//@Ignore
-public class HolaImplSinHandlerChainAnnotationTest {
+
+public class HolaImpTest {
 	
 	private HolaService holaService;
 			
 	@Before
 	public void setUp(){
 		try {		
-		URL url = new URL("http://localhost:8080/soap-handlers/HolaSHCA?wsdl");
+		URL url = new URL("http://localhost:8080/soap-handlers/HolaService?wsdl");
 		
 		holaService = new HolaService(url);
 		
