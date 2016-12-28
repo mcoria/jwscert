@@ -10,7 +10,11 @@ import javax.xml.ws.WebServiceProvider;
 import net.webservicex.GetCitiesByCountryResponse;
 import net.webservicex.ObjectFactory;
 
-@WebServiceProvider(serviceName = "GlobalWeatherService", portName = "GlobalWeatherPort", targetNamespace = "http://www.webserviceX.NET", wsdlLocation = "WEB-INF/wsdl/globalweather.wsdl")
+
+@WebServiceProvider(serviceName = "GlobalWeatherService", 
+					portName = "GlobalWeatherPort", 
+					targetNamespace = "http://www.webserviceX.NET", 
+					wsdlLocation = "WEB-INF/wsdl/globalweather.wsdl")
 @ServiceMode(value = Mode.PAYLOAD)
 public class PayloadMode implements Provider<Source> {
 
@@ -26,14 +30,19 @@ public class PayloadMode implements Provider<Source> {
 
 	@Override
 	public Source invoke(Source request) {
-		//Object requestPayload = utils.unmarshall(request);
+		
+		System.out.print("PayloadMode.invoke(Source request)....\n");
+		
+		utils.sourceToXML(request, System.out);
+		
+		System.out.flush();
 		
 		return createBody();
 	}
 
 	private Source createBody() {
 		GetCitiesByCountryResponse wsResponse = weatherFactory.createGetCitiesByCountryResponse();
-		wsResponse.setGetCitiesByCountryResult("Jaja");
+		wsResponse.setGetCitiesByCountryResult("PayloadMode");
 		return utils.toJAXBSource(wsResponse);
 	}
 	

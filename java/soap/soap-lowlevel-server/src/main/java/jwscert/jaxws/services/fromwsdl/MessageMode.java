@@ -15,7 +15,10 @@ import org.w3c.dom.Document;
 import net.webservicex.GetCitiesByCountryResponse;
 import net.webservicex.ObjectFactory;
 
-@WebServiceProvider(serviceName = "GlobalWeatherService", portName = "GlobalWeatherPort", targetNamespace = "http://www.webserviceX.NET", wsdlLocation = "WEB-INF/wsdl/globalweather.wsdl")
+@WebServiceProvider(serviceName = "GlobalWeatherService", 
+					portName = "GlobalWeatherPort", 
+					targetNamespace = "http://www.webserviceX.NET", 
+					wsdlLocation = "WEB-INF/wsdl/globalweather.wsdl")
 @ServiceMode(value = Mode.MESSAGE)
 public class MessageMode implements Provider<SOAPMessage> {
 
@@ -54,7 +57,7 @@ public class MessageMode implements Provider<SOAPMessage> {
 
 	private Document createBody() {
 		GetCitiesByCountryResponse wsResponse = weatherFactory.createGetCitiesByCountryResponse();
-		wsResponse.setGetCitiesByCountryResult("Jaja");
+		wsResponse.setGetCitiesByCountryResult("MessageMode");
 		return utils.toDocument(wsResponse);
 	}
 

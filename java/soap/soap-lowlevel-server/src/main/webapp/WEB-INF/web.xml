@@ -1,33 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://java.sun.com/xml/ns/javaee"
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	version="3.0">
 	<display-name>JEE 6 - Web Application</display-name>
 
-
-
 	<servlet>
-		<servlet-name>MessageMode</servlet-name>
+		<servlet-name>jwscert.jaxws.services.fromwsdl.MessageMode</servlet-name>
 		<servlet-class>jwscert.jaxws.services.fromwsdl.MessageMode</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>MessageMode</servlet-name>
+		<servlet-name>jwscert.jaxws.services.fromwsdl.MessageMode</servlet-name>
 		<url-pattern>/MessageMode</url-pattern>
 	</servlet-mapping>
 
-
 	<servlet>
-		<servlet-name>PayloadMode</servlet-name>
+		<servlet-name>jwscert.jaxws.services.fromwsdl.PayloadMode</servlet-name>
 		<servlet-class>jwscert.jaxws.services.fromwsdl.PayloadMode</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>PayloadMode</servlet-name>
+		<servlet-name>jwscert.jaxws.services.fromwsdl.PayloadMode</servlet-name>
 		<url-pattern>/PayloadMode</url-pattern>
 	</servlet-mapping>
-
+	
+	<servlet>
+		<servlet-name>jwscert.jaxws.services.fromwsdl.GlobalWeatherImp</servlet-name>
+		<servlet-class>jwscert.jaxws.services.fromwsdl.GlobalWeatherImp</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>jwscert.jaxws.services.fromwsdl.GlobalWeatherImp</servlet-name>
+		<url-pattern>/GlobalWeatherImp</url-pattern>
+	</servlet-mapping>	
 
 	<session-config>
 		<session-timeout>60</session-timeout>

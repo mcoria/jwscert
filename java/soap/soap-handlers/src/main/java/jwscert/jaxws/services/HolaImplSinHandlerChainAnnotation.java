@@ -4,7 +4,7 @@ import javax.jws.WebService;
 
 import jwscert.jaxws.services.generated.Hola;
 
-@WebService(endpointInterface="jwscert.jaxws.services.generated.Hola")
+//@WebService(endpointInterface="jwscert.jaxws.services.generated.Hola")
 public class HolaImplSinHandlerChainAnnotation implements Hola {
 
 	public String test(String in) {

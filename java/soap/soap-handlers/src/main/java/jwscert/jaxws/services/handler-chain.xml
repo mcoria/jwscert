@@ -5,6 +5,14 @@
 	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/javaee_web_services_metadata_handler_2_0.xsd">
 	<handler-chain>
+		<!--
+		<service-name-pattern></service-name-pattern> |
+		<port-name-pattern>asd</port-name-pattern> | 
+		<protocol-bindings> ##SOAP11_HTTP | ##SOAP11_HTTP_MTOM | 
+							##SOAP11_HTTP | ##SOAP12_HTTP_MTOM |
+							##XML_HTTP
+							</protocol-bindings>
+		 --> 
 		<handler>
 			<handler-name>LogicalHandler1</handler-name>
 			<handler-class>jwscert.jaxws.services.LogicalHandler1</handler-class>

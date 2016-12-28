@@ -1,6 +1,6 @@
 package jwscert.jaxws.services.fromwsdl;
 
-import java.io.PrintWriter;
+import java.io.PrintStream;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -45,19 +45,20 @@ public class Utils {
 	}
 	
 
-    public void jaxbObjectToXML(Object object, PrintWriter out) {
+    public void jaxbObjectToXML(Object object, PrintStream out) {
         try {
 
             out.println("Class:" + object.getClass());
             
             // Write to File
             marshaller.marshal(object, out);
+            
         } catch (JAXBException e) {
             e.printStackTrace();
         }
     }	
     
-    public void sourceToXML(Source result, PrintWriter out) {
+    public void sourceToXML(Source result, PrintStream out) {
         try {
            TransformerFactory factory = TransformerFactory.newInstance();
            Transformer transformer = factory.newTransformer();
@@ -66,7 +67,7 @@ public class Utils {
            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
            //OutputStream out = new ByteArrayOutputStream();
            StreamResult streamResult = new StreamResult();
-           streamResult.setWriter(out);
+           streamResult.setOutputStream(out);
            transformer.transform(result, streamResult);
         } catch (TransformerException e) {
            e.printStackTrace();
