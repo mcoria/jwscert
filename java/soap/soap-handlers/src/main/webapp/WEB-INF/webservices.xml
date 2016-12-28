@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webservices version="1.3"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:ns1="http://www.example.org/Hola/"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/javaee_web_services_1_3.xsd">
+	<webservice-description>
+		<webservice-description-name>HolaSHCA</webservice-description-name>
+		<port-component>
+			<port-component-name>HolaImplSinHandlerChainAnnotation</port-component-name>
+			<wsdl-service>ns1:HolaService</wsdl-service>  
+			<wsdl-port>ns1:HolaServicePort</wsdl-port>
+			<service-endpoint-interface>jwscert.jaxws.services.generated.Hola</service-endpoint-interface>
+			<service-impl-bean>
+				<servlet-link>jwscert.jaxws.services.HolaImplSinHandlerChainAnnotation</servlet-link>
+			</service-impl-bean>  
+			<handler-chains>
+				<handler-chain>
+					<handler>
+						<handler-name>LogicalHandler2</handler-name>
+						<handler-class>jwscert.jaxws.services.LogicalHandler2</handler-class>
+					</handler>
+					<handler>
+						<handler-name>SOAPHandler2</handler-name>
+						<handler-class>jwscert.jaxws.services.SOAPHandler2</handler-class>
+					</handler>
+				</handler-chain>
+			</handler-chains>
+		</port-component>
+	</webservice-description>
+</webservices>
