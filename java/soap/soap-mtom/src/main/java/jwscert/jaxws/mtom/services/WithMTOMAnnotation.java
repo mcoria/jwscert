@@ -6,10 +6,11 @@ import java.io.IOException;
 import javax.activation.DataHandler;
 import javax.imageio.ImageIO;
 import javax.jws.WebService;
-
+import javax.xml.ws.soap.MTOM;
 
 @WebService(endpointInterface= "jwscert.jaxws.mtom.services.ImageInterface")
-public class NoMTOM implements ImageInterface{
+@MTOM
+public class WithMTOMAnnotation implements ImageInterface{
 	public Image getImage(Image parametro) {
 		Image result = null; 
 		try {

@@ -6,10 +6,15 @@ import java.io.IOException;
 import javax.activation.DataHandler;
 import javax.imageio.ImageIO;
 import javax.jws.WebService;
-
+import javax.xml.ws.BindingType;
 
 @WebService(endpointInterface= "jwscert.jaxws.mtom.services.ImageInterface")
-public class NoMTOM implements ImageInterface{
+@BindingType(value=javax.xml.ws.soap.SOAPBinding.SOAP11HTTP_MTOM_BINDING)
+public class WithBinidngTypeAnnotation implements ImageInterface {
+	/* (non-Javadoc)
+	 * @see jwscert.jaxws.mtom.services.ImageInterface#getImage()
+	 */
+	@Override
 	public Image getImage(Image parametro) {
 		Image result = null; 
 		try {
@@ -37,5 +42,6 @@ public class NoMTOM implements ImageInterface{
 	public DataHandler getAttachmentRef(DataHandler parametro) {
 		// TODO Auto-generated method stub
 		return null;
-	}*/
+	}
+	*/
 }
