@@ -4,7 +4,6 @@ import javax.jws.WebService;
 
 import net.webservicex.GlobalWeather;
 
-
 @WebService(serviceName="GlobalWeatherService", 
 			portName="GlobalWeatherPort", 
 			endpointInterface="net.webservicex.GlobalWeather",

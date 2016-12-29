@@ -7,11 +7,11 @@
 
 
 	<servlet>
-		<servlet-name>GlobalWeatherImp0</servlet-name>
+		<servlet-name>jwscert.jaxws.services.fromwsdl.GlobalWeatherImp0</servlet-name>
 		<servlet-class>jwscert.jaxws.services.fromwsdl.GlobalWeatherImp0</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>GlobalWeatherImp0</servlet-name>
+		<servlet-name>jwscert.jaxws.services.fromwsdl.GlobalWeatherImp0</servlet-name>
 		<url-pattern>/GlobalWeather0</url-pattern>
 	</servlet-mapping>
 
@@ -64,8 +64,9 @@
 	<servlet-mapping>
 		<servlet-name>jwscert.jaxws.services.fromjava.twoendpoints.HelloSIB1</servlet-name>
 		<url-pattern>/HelloSEI12</url-pattern>
-	</servlet-mapping>	
-	
+	</servlet-mapping>
+	 
+		
 	<session-config>
 		<session-timeout>1</session-timeout>
 	</session-config>
