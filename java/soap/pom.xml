@@ -19,7 +19,6 @@
 	
 	<modules>
 		<module>soap-ejb-server</module>
-		<module>soap-servlet-client</module>
 		<module>soap-servlet-server</module>
 		<module>soap-handlers</module>
 		<module>soap-jee-security</module>
@@ -28,6 +27,7 @@
 		<module>soap-lowlevel-server</module>
 		<module>soap-message-security</module>
 		<module>soap-javase-server</module>
+		<module>soap-servlet-client</module>
   </modules>
 
 	<dependencyManagement>
